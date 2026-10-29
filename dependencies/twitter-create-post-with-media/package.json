@@ -1,0 +1,815 @@
+{
+  "name": "twitter-create-post-with-media",
+  "version": "1.2.1",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "X image/video post",
+    "zh_CN": "推特图文/视频发帖",
+    "zh_TW": "推特圖文/影片發帖",
+    "ja_JP": "X 画像・動画投稿",
+    "ko_KR": "X 이미지/동영상 게시",
+    "th_TH": "โพสต์รูป/วิดีโอ X",
+    "id_ID": "Post gambar/video X",
+    "ms_MY": "Siaran imej/video X",
+    "vi_VN": "Đăng ảnh/video X",
+    "de_DE": "X Bild-/Video-Post",
+    "es_ES": "Publicación imagen/vídeo X",
+    "pt_BR": "Post imagem/vídeo X",
+    "fr_FR": "Publication image/vidéo X",
+    "ru_RU": "Пост с фото/видео в X"
+  },
+  "description": {
+    "en_US": "Open X compose, fill caption, upload images or one video, then publish",
+    "zh_CN": "在 X（推特）打开发帖框，填写文案并上传图片或单个视频后发布",
+    "zh_TW": "在 X（推特）開啟發帖框，填寫文案並上傳圖片或單個影片後發布",
+    "ja_JP": "X で投稿を作成し、テキストと画像または動画1本を公開",
+    "ko_KR": "X에서 글을 작성하고 이미지 또는 동영상 1개를 올려 게시",
+    "th_TH": "เปิดกล่องโพสต์บน X กรอกข้อความ แล้วอัปโหลดรูปหรือวิดีโอ 1 คลิปแล้วโพสต์",
+    "id_ID": "Buka compose X, isi teks, unggah gambar atau satu video, lalu terbitkan",
+    "ms_MY": "Buka compose X, isi teks, muat naik imej atau satu video, lalu siarkan",
+    "vi_VN": "Mở khung đăng X, nhập chữ, tải ảnh hoặc một video rồi đăng",
+    "de_DE": "X-Composer öffnen, Text eingeben, Bilder oder ein Video hochladen und veröffentlichen",
+    "es_ES": "Abrir el compositor de X, escribir texto, subir imágenes o un vídeo y publicar",
+    "pt_BR": "Abrir o compositor do X, escrever texto, enviar imagens ou um vídeo e publicar",
+    "fr_FR": "Ouvrir le composeur X, saisir le texte, téléverser des images ou une vidéo, puis publier",
+    "ru_RU": "Открыть композер X, ввести текст, загрузить изображения или одно видео и опубликовать"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Post content",
+          "zh_CN": "发帖内容",
+          "zh_TW": "發帖內容",
+          "ja_JP": "Post content",
+          "ko_KR": "Post content",
+          "th_TH": "Post content",
+          "id_ID": "Post content",
+          "ms_MY": "Post content",
+          "vi_VN": "Post content",
+          "de_DE": "Post content",
+          "es_ES": "Post content",
+          "pt_BR": "Post content",
+          "fr_FR": "Post content",
+          "ru_RU": "Post content"
+        },
+        "fields": [
+          {
+            "key": "media_type",
+            "type": "singleSelect",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "メディア種別",
+              "ko_KR": "미디어 유형",
+              "th_TH": "ประเภทสื่อ",
+              "id_ID": "Jenis media",
+              "ms_MY": "Jenis media",
+              "vi_VN": "Loại media",
+              "de_DE": "Medientyp",
+              "es_ES": "Tipo de medio",
+              "pt_BR": "Tipo de mídia",
+              "fr_FR": "Type de média",
+              "ru_RU": "Тип медиа"
+            },
+            "hint": {
+              "en_US": "Choose image posts (multiple images OK) or video posts (one video per post).",
+              "zh_CN": "选择发图片（可多张）还是发视频（每帖仅 1 个视频）。",
+              "zh_TW": "選擇發圖片（可多張）還是發影片（每帖僅 1 個影片）。",
+              "ja_JP": "画像投稿（複数可）か動画投稿（1投稿1本）かを選択。",
+              "ko_KR": "이미지 게시(여러 장 가능) 또는 동영상 게시(게시당 1개)를 선택.",
+              "th_TH": "เลือกว่าจะโพสต์รูป (หลายรูปได้) หรือวิดีโอ (โพสต์ละ 1 คลิป)",
+              "id_ID": "Pilih postingan gambar (boleh banyak) atau video (satu video per postingan).",
+              "ms_MY": "Pilih siaran imej (boleh berbilang) atau video (satu video setiap siaran).",
+              "vi_VN": "Chọn đăng ảnh (được nhiều ảnh) hoặc video (mỗi bài chỉ 1 video).",
+              "de_DE": "Bildbeiträge (mehrere OK) oder Videobeiträge (ein Video pro Post).",
+              "es_ES": "Publicaciones con imágenes (varias OK) o con vídeo (un vídeo por post).",
+              "pt_BR": "Posts com imagens (várias OK) ou com vídeo (um vídeo por post).",
+              "fr_FR": "Publications images (plusieurs OK) ou vidéo (une vidéo par post).",
+              "ru_RU": "Посты с изображениями (можно несколько) или видео (одно на пост)."
+            },
+            "options": [
+              {
+                "value": "image",
+                "label": {
+                  "en_US": "Images",
+                  "zh_CN": "图片",
+                  "zh_TW": "圖片",
+                  "ja_JP": "画像",
+                  "ko_KR": "이미지",
+                  "th_TH": "รูปภาพ",
+                  "id_ID": "Gambar",
+                  "ms_MY": "Imej",
+                  "vi_VN": "Ảnh",
+                  "de_DE": "Bilder",
+                  "es_ES": "Imágenes",
+                  "pt_BR": "Imagens",
+                  "fr_FR": "Images",
+                  "ru_RU": "Изображения"
+                }
+              },
+              {
+                "value": "video",
+                "label": {
+                  "en_US": "Video",
+                  "zh_CN": "视频",
+                  "zh_TW": "影片",
+                  "ja_JP": "動画",
+                  "ko_KR": "동영상",
+                  "th_TH": "วิดีโอ",
+                  "id_ID": "Video",
+                  "ms_MY": "Video",
+                  "vi_VN": "Video",
+                  "de_DE": "Video",
+                  "es_ES": "Vídeo",
+                  "pt_BR": "Vídeo",
+                  "fr_FR": "Vidéo",
+                  "ru_RU": "Видео"
+                }
+              }
+            ],
+            "defaultValue": "image"
+          },
+          {
+            "key": "contents",
+            "type": "text",
+            "label": {
+              "en_US": "Post texts",
+              "zh_CN": "帖文案",
+              "zh_TW": "帖文案",
+              "ja_JP": "Post texts",
+              "ko_KR": "Post texts",
+              "th_TH": "Post texts",
+              "id_ID": "Post texts",
+              "ms_MY": "Post texts",
+              "vi_VN": "Post texts",
+              "de_DE": "Post texts",
+              "es_ES": "Post texts",
+              "pt_BR": "Post texts",
+              "fr_FR": "Post texts",
+              "ru_RU": "Post texts"
+            },
+            "hint": {
+              "en_US": "One post text per line; each line becomes one task",
+              "zh_CN": "支持多行，每一行是一条帖文案（一条子任务）",
+              "zh_TW": "支援多行，每一行是一則帖文案（一筆子任務）",
+              "ja_JP": "One post text per line; each line becomes one task",
+              "ko_KR": "One post text per line; each line becomes one task",
+              "th_TH": "One post text per line; each line becomes one task",
+              "id_ID": "One post text per line; each line becomes one task",
+              "ms_MY": "One post text per line; each line becomes one task",
+              "vi_VN": "One post text per line; each line becomes one task",
+              "de_DE": "One post text per line; each line becomes one task",
+              "es_ES": "One post text per line; each line becomes one task",
+              "pt_BR": "One post text per line; each line becomes one task",
+              "fr_FR": "One post text per line; each line becomes one task",
+              "ru_RU": "One post text per line; each line becomes one task"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "media",
+            "type": "resource",
+            "label": {
+              "en_US": "Images",
+              "zh_CN": "配图",
+              "zh_TW": "配圖",
+              "ja_JP": "Images",
+              "ko_KR": "Images",
+              "th_TH": "Images",
+              "id_ID": "Images",
+              "ms_MY": "Images",
+              "vi_VN": "Images",
+              "de_DE": "Images",
+              "es_ES": "Images",
+              "pt_BR": "Images",
+              "fr_FR": "Images",
+              "ru_RU": "Images"
+            },
+            "hint": {
+              "en_US": "Image pool (shown when Media type = Images). Shared across posts.",
+              "zh_CN": "图片池（仅在选择「图片」时显示）。各帖共用所选配图。",
+              "zh_TW": "圖片池（僅在選擇「圖片」時顯示）。各帖共用所選配圖。",
+              "ja_JP": "画像プール（「画像」選択時のみ）。投稿間で共有。",
+              "ko_KR": "이미지 풀(「이미지」선택 시에만). 게시 간 공유.",
+              "th_TH": "คลังรูป (แสดงเมื่อเลือก「รูปภาพ」) ใช้ร่วมกันทุกโพสต์",
+              "id_ID": "Pool gambar (tampil jika pilih Gambar). Dibagi ke semua postingan.",
+              "ms_MY": "Kolam imej (papar bila pilih Imej). Dikongsi semua siaran.",
+              "vi_VN": "Kho ảnh (hiện khi chọn Ảnh). Dùng chung cho các bài.",
+              "de_DE": "Bildpool (nur bei Medientyp Bilder). Gemeinsam für Beiträge.",
+              "es_ES": "Grupo de imágenes (solo si tipo = Imágenes). Compartido entre posts.",
+              "pt_BR": "Pool de imagens (só se tipo = Imagens). Compartilhado entre posts.",
+              "fr_FR": "Réserve d images (si type = Images). Partagée entre posts.",
+              "ru_RU": "Пул изображений (если тип = Изображения). Общий для постов."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-image"
+          },
+          {
+            "key": "videos",
+            "type": "resource",
+            "label": {
+              "en_US": "Videos",
+              "zh_CN": "视频",
+              "zh_TW": "影片",
+              "ja_JP": "動画",
+              "ko_KR": "동영상",
+              "th_TH": "วิดีโอ",
+              "id_ID": "Video",
+              "ms_MY": "Video",
+              "vi_VN": "Video",
+              "de_DE": "Videos",
+              "es_ES": "Vídeos",
+              "pt_BR": "Vídeos",
+              "fr_FR": "Vidéos",
+              "ru_RU": "Видео"
+            },
+            "hint": {
+              "en_US": "Video pool (shown when Media type = Video). One video per post, taken in order and cycles when exhausted.",
+              "zh_CN": "视频池（仅在选择「视频」时显示）。每帖 1 个视频，按顺序取用，用完后循环。",
+              "zh_TW": "影片池（僅在選擇「影片」時顯示）。每帖 1 個影片，按順序取用，用完後循環。",
+              "ja_JP": "動画プール（「動画」選択時のみ）。1投稿1本、順に使い尽きると循環。",
+              "ko_KR": "동영상 풀(「동영상」선택 시에만). 게시당 1개, 순서대로 사용 후 순환.",
+              "th_TH": "คลังวิดีโอ (แสดงเมื่อเลือก「วิดีโอ」) โพสต์ละ 1 คลิป วนเมื่อหมด",
+              "id_ID": "Pool video (tampil jika pilih Video). Satu video per postingan, berurutan lalu berulang.",
+              "ms_MY": "Kolam video (papar bila pilih Video). Satu video setiap siaran, ikut urutan lalu berulang.",
+              "vi_VN": "Kho video (hiện khi chọn Video). Mỗi bài 1 video, tuần tự rồi lặp.",
+              "de_DE": "Videopool (nur bei Medientyp Video). Ein Video pro Post, der Reihe nach, dann von vorn.",
+              "es_ES": "Grupo de vídeos (solo si tipo = Vídeo). Un vídeo por post, en orden y cíclico.",
+              "pt_BR": "Pool de vídeos (só se tipo = Vídeo). Um vídeo por post, em ordem e cíclico.",
+              "fr_FR": "Réserve de vidéos (si type = Vidéo). Une vidéo par post, dans l ordre puis cyclique.",
+              "ru_RU": "Пул видео (если тип = Видео). Одно видео на пост, по порядку, затем по кругу."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".mp4",
+              ".mov",
+              ".webm",
+              ".m4v"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-video"
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "Browsers",
+              "ko_KR": "Browsers",
+              "th_TH": "Browsers",
+              "id_ID": "Browsers",
+              "ms_MY": "Browsers",
+              "vi_VN": "Browsers",
+              "de_DE": "Browsers",
+              "es_ES": "Browsers",
+              "pt_BR": "Browsers",
+              "fr_FR": "Browsers",
+              "ru_RU": "Browsers"
+            },
+            "hint": {
+              "en_US": "Select logged-in X browsers to run this task",
+              "zh_CN": "选择已登录 X 的浏览器执行",
+              "zh_TW": "選擇已登入 X 的瀏覽器執行",
+              "ja_JP": "Select logged-in X browsers to run this task",
+              "ko_KR": "Select logged-in X browsers to run this task",
+              "th_TH": "Select logged-in X browsers to run this task",
+              "id_ID": "Select logged-in X browsers to run this task",
+              "ms_MY": "Select logged-in X browsers to run this task",
+              "vi_VN": "Select logged-in X browsers to run this task",
+              "de_DE": "Select logged-in X browsers to run this task",
+              "es_ES": "Select logged-in X browsers to run this task",
+              "pt_BR": "Select logged-in X browsers to run this task",
+              "fr_FR": "Select logged-in X browsers to run this task",
+              "ru_RU": "Select logged-in X browsers to run this task"
+            },
+            "single": false,
+            "platform": "twitter",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "Schedule",
+          "ko_KR": "Schedule",
+          "th_TH": "Schedule",
+          "id_ID": "Schedule",
+          "ms_MY": "Schedule",
+          "vi_VN": "Schedule",
+          "de_DE": "Schedule",
+          "es_ES": "Schedule",
+          "pt_BR": "Schedule",
+          "fr_FR": "Schedule",
+          "ru_RU": "Schedule"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "Daily limit",
+              "ko_KR": "Daily limit",
+              "th_TH": "Daily limit",
+              "id_ID": "Daily limit",
+              "ms_MY": "Daily limit",
+              "vi_VN": "Daily limit",
+              "de_DE": "Daily limit",
+              "es_ES": "Daily limit",
+              "pt_BR": "Daily limit",
+              "fr_FR": "Daily limit",
+              "ru_RU": "Daily limit"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務",
+              "ja_JP": "Max tasks assigned to each device per day",
+              "ko_KR": "Max tasks assigned to each device per day",
+              "th_TH": "Max tasks assigned to each device per day",
+              "id_ID": "Max tasks assigned to each device per day",
+              "ms_MY": "Max tasks assigned to each device per day",
+              "vi_VN": "Max tasks assigned to each device per day",
+              "de_DE": "Max tasks assigned to each device per day",
+              "es_ES": "Max tasks assigned to each device per day",
+              "pt_BR": "Max tasks assigned to each device per day",
+              "fr_FR": "Max tasks assigned to each device per day",
+              "ru_RU": "Max tasks assigned to each device per day"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）",
+              "ja_JP": "Min interval (s)",
+              "ko_KR": "Min interval (s)",
+              "th_TH": "Min interval (s)",
+              "id_ID": "Min interval (s)",
+              "ms_MY": "Min interval (s)",
+              "vi_VN": "Min interval (s)",
+              "de_DE": "Min interval (s)",
+              "es_ES": "Min interval (s)",
+              "pt_BR": "Min interval (s)",
+              "fr_FR": "Min interval (s)",
+              "ru_RU": "Min interval (s)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）",
+              "ja_JP": "Min interval between runs on the same device (seconds)",
+              "ko_KR": "Min interval between runs on the same device (seconds)",
+              "th_TH": "Min interval between runs on the same device (seconds)",
+              "id_ID": "Min interval between runs on the same device (seconds)",
+              "ms_MY": "Min interval between runs on the same device (seconds)",
+              "vi_VN": "Min interval between runs on the same device (seconds)",
+              "de_DE": "Min interval between runs on the same device (seconds)",
+              "es_ES": "Min interval between runs on the same device (seconds)",
+              "pt_BR": "Min interval between runs on the same device (seconds)",
+              "fr_FR": "Min interval between runs on the same device (seconds)",
+              "ru_RU": "Min interval between runs on the same device (seconds)"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）",
+              "ja_JP": "Max interval (s)",
+              "ko_KR": "Max interval (s)",
+              "th_TH": "Max interval (s)",
+              "id_ID": "Max interval (s)",
+              "ms_MY": "Max interval (s)",
+              "vi_VN": "Max interval (s)",
+              "de_DE": "Max interval (s)",
+              "es_ES": "Max interval (s)",
+              "pt_BR": "Max interval (s)",
+              "fr_FR": "Max interval (s)",
+              "ru_RU": "Max interval (s)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）",
+              "ja_JP": "Max interval between runs on the same device (seconds)",
+              "ko_KR": "Max interval between runs on the same device (seconds)",
+              "th_TH": "Max interval between runs on the same device (seconds)",
+              "id_ID": "Max interval between runs on the same device (seconds)",
+              "ms_MY": "Max interval between runs on the same device (seconds)",
+              "vi_VN": "Max interval between runs on the same device (seconds)",
+              "de_DE": "Max interval between runs on the same device (seconds)",
+              "es_ES": "Max interval between runs on the same device (seconds)",
+              "pt_BR": "Max interval between runs on the same device (seconds)",
+              "fr_FR": "Max interval between runs on the same device (seconds)",
+              "ru_RU": "Max interval between runs on the same device (seconds)"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "Daily start time",
+              "ko_KR": "Daily start time",
+              "th_TH": "Daily start time",
+              "id_ID": "Daily start time",
+              "ms_MY": "Daily start time",
+              "vi_VN": "Daily start time",
+              "de_DE": "Daily start time",
+              "es_ES": "Daily start time",
+              "pt_BR": "Daily start time",
+              "fr_FR": "Daily start time",
+              "ru_RU": "Daily start time"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "Daily end time",
+              "ko_KR": "Daily end time",
+              "th_TH": "Daily end time",
+              "id_ID": "Daily end time",
+              "ms_MY": "Daily end time",
+              "vi_VN": "Daily end time",
+              "de_DE": "Daily end time",
+              "es_ES": "Daily end time",
+              "pt_BR": "Daily end time",
+              "fr_FR": "Daily end time",
+              "ru_RU": "Daily end time"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Post",
+          "zh_CN": "发帖",
+          "zh_TW": "發帖",
+          "ja_JP": "Post",
+          "ko_KR": "Post",
+          "th_TH": "Post",
+          "id_ID": "Post",
+          "ms_MY": "Post",
+          "vi_VN": "Post",
+          "de_DE": "Post",
+          "es_ES": "Post",
+          "pt_BR": "Post",
+          "fr_FR": "Post",
+          "ru_RU": "Post"
+        },
+        "fields": [
+          {
+            "key": "media_type",
+            "type": "singleSelect",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "メディア種別",
+              "ko_KR": "미디어 유형",
+              "th_TH": "ประเภทสื่อ",
+              "id_ID": "Jenis media",
+              "ms_MY": "Jenis media",
+              "vi_VN": "Loại media",
+              "de_DE": "Medientyp",
+              "es_ES": "Tipo de medio",
+              "pt_BR": "Tipo de mídia",
+              "fr_FR": "Type de média",
+              "ru_RU": "Тип медиа"
+            },
+            "hint": {
+              "en_US": "Choose image posts (multiple images OK) or video posts (one video per post).",
+              "zh_CN": "选择发图片（可多张）还是发视频（每帖仅 1 个视频）。",
+              "zh_TW": "選擇發圖片（可多張）還是發影片（每帖僅 1 個影片）。",
+              "ja_JP": "画像投稿（複数可）か動画投稿（1投稿1本）かを選択。",
+              "ko_KR": "이미지 게시(여러 장 가능) 또는 동영상 게시(게시당 1개)를 선택.",
+              "th_TH": "เลือกว่าจะโพสต์รูป (หลายรูปได้) หรือวิดีโอ (โพสต์ละ 1 คลิป)",
+              "id_ID": "Pilih postingan gambar (boleh banyak) atau video (satu video per postingan).",
+              "ms_MY": "Pilih siaran imej (boleh berbilang) atau video (satu video setiap siaran).",
+              "vi_VN": "Chọn đăng ảnh (được nhiều ảnh) hoặc video (mỗi bài chỉ 1 video).",
+              "de_DE": "Bildbeiträge (mehrere OK) oder Videobeiträge (ein Video pro Post).",
+              "es_ES": "Publicaciones con imágenes (varias OK) o con vídeo (un vídeo por post).",
+              "pt_BR": "Posts com imagens (várias OK) ou com vídeo (um vídeo por post).",
+              "fr_FR": "Publications images (plusieurs OK) ou vidéo (une vidéo par post).",
+              "ru_RU": "Посты с изображениями (можно несколько) или видео (одно на пост)."
+            },
+            "options": [
+              {
+                "value": "image",
+                "label": {
+                  "en_US": "Images",
+                  "zh_CN": "图片",
+                  "zh_TW": "圖片",
+                  "ja_JP": "画像",
+                  "ko_KR": "이미지",
+                  "th_TH": "รูปภาพ",
+                  "id_ID": "Gambar",
+                  "ms_MY": "Imej",
+                  "vi_VN": "Ảnh",
+                  "de_DE": "Bilder",
+                  "es_ES": "Imágenes",
+                  "pt_BR": "Imagens",
+                  "fr_FR": "Images",
+                  "ru_RU": "Изображения"
+                }
+              },
+              {
+                "value": "video",
+                "label": {
+                  "en_US": "Video",
+                  "zh_CN": "视频",
+                  "zh_TW": "影片",
+                  "ja_JP": "動画",
+                  "ko_KR": "동영상",
+                  "th_TH": "วิดีโอ",
+                  "id_ID": "Video",
+                  "ms_MY": "Video",
+                  "vi_VN": "Video",
+                  "de_DE": "Video",
+                  "es_ES": "Vídeo",
+                  "pt_BR": "Vídeo",
+                  "fr_FR": "Vidéo",
+                  "ru_RU": "Видео"
+                }
+              }
+            ],
+            "defaultValue": "image"
+          },
+          {
+            "key": "content",
+            "type": "text",
+            "label": {
+              "en_US": "Post text",
+              "zh_CN": "帖文案",
+              "zh_TW": "帖文案",
+              "ja_JP": "Post text",
+              "ko_KR": "Post text",
+              "th_TH": "Post text",
+              "id_ID": "Post text",
+              "ms_MY": "Post text",
+              "vi_VN": "Post text",
+              "de_DE": "Post text",
+              "es_ES": "Post text",
+              "pt_BR": "Post text",
+              "fr_FR": "Post text",
+              "ru_RU": "Post text"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "media",
+            "type": "resource",
+            "label": {
+              "en_US": "Images",
+              "zh_CN": "配图",
+              "zh_TW": "配圖",
+              "ja_JP": "Images",
+              "ko_KR": "Images",
+              "th_TH": "Images",
+              "id_ID": "Images",
+              "ms_MY": "Images",
+              "vi_VN": "Images",
+              "de_DE": "Images",
+              "es_ES": "Images",
+              "pt_BR": "Images",
+              "fr_FR": "Images",
+              "ru_RU": "Images"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-image",
+            "hint": {
+              "en_US": "One or more images for this post (Images mode only).",
+              "zh_CN": "本帖要发的一张或多张图片（仅图片模式）。",
+              "zh_TW": "本帖要發的一張或多張圖片（僅圖片模式）。",
+              "ja_JP": "この投稿の画像（画像モードのみ、複数可）。",
+              "ko_KR": "이 게시에 올릴 이미지(이미지 모드만, 여러 장 가능).",
+              "th_TH": "รูปสำหรับโพสต์นี้ (โหมดรูปเท่านั้น หลายรูปได้)",
+              "id_ID": "Satu atau lebih gambar untuk postingan ini (mode Gambar saja).",
+              "ms_MY": "Satu atau lebih imej untuk siaran ini (mod Imej sahaja).",
+              "vi_VN": "Một hoặc nhiều ảnh cho bài này (chỉ chế độ Ảnh).",
+              "de_DE": "Ein oder mehrere Bilder für diesen Post (nur Bildmodus).",
+              "es_ES": "Una o más imágenes para este post (solo modo Imágenes).",
+              "pt_BR": "Uma ou mais imagens para este post (somente modo Imagens).",
+              "fr_FR": "Une ou plusieurs images pour ce post (mode Images uniquement).",
+              "ru_RU": "Одно или несколько изображений для этого поста (только режим изображений)."
+            }
+          },
+          {
+            "key": "video",
+            "type": "resource",
+            "label": {
+              "en_US": "Video",
+              "zh_CN": "视频",
+              "zh_TW": "影片",
+              "ja_JP": "動画",
+              "ko_KR": "동영상",
+              "th_TH": "วิดีโอ",
+              "id_ID": "Video",
+              "ms_MY": "Video",
+              "vi_VN": "Video",
+              "de_DE": "Video",
+              "es_ES": "Vídeo",
+              "pt_BR": "Vídeo",
+              "fr_FR": "Vidéo",
+              "ru_RU": "Видео"
+            },
+            "hint": {
+              "en_US": "Exactly one video for this post (Video mode only). Pass resource md5 or local path.",
+              "zh_CN": "本帖要发的单个视频（仅视频模式，每帖 1 个）。传资源库 md5 或本地路径。",
+              "zh_TW": "本帖要發的單個影片（僅影片模式，每帖 1 個）。傳資源庫 md5 或本機路徑。",
+              "ja_JP": "この投稿の動画1本（動画モードのみ）。リソース md5 またはローカルパス。",
+              "ko_KR": "이 게시에 올릴 동영상 1개(동영상 모드만). 리소스 md5 또는 로컬 경로.",
+              "th_TH": "วิดีโอ 1 คลิปสำหรับโพสต์นี้ (โหมดวิดีโอเท่านั้น)",
+              "id_ID": "Tepat satu video untuk postingan ini (mode Video saja).",
+              "ms_MY": "Tepat satu video untuk siaran ini (mod Video sahaja).",
+              "vi_VN": "Đúng một video cho bài này (chỉ chế độ Video).",
+              "de_DE": "Genau ein Video für diesen Post (nur Videomodus).",
+              "es_ES": "Exactamente un vídeo para este post (solo modo Vídeo).",
+              "pt_BR": "Exatamente um vídeo para este post (somente modo Vídeo).",
+              "fr_FR": "Exactement une vidéo pour ce post (mode Vidéo uniquement).",
+              "ru_RU": "Ровно одно видео для этого поста (только режим видео)."
+            },
+            "allowMultiple": false,
+            "extensions": [
+              ".mp4",
+              ".mov",
+              ".webm",
+              ".m4v"
+            ],
+            "defaultValue": null,
+            "showBySingleSelect": "media_type-video"
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "Run result",
+          "ko_KR": "Run result",
+          "th_TH": "Run result",
+          "id_ID": "Run result",
+          "ms_MY": "Run result",
+          "vi_VN": "Run result",
+          "de_DE": "Run result",
+          "es_ES": "Run result",
+          "pt_BR": "Run result",
+          "fr_FR": "Run result",
+          "ru_RU": "Run result"
+        },
+        "fields": [
+          {
+            "key": "mediaType",
+            "type": "text",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "メディア種別",
+              "ko_KR": "미디어 유형",
+              "th_TH": "ประเภทสื่อ",
+              "id_ID": "Jenis media",
+              "ms_MY": "Jenis media",
+              "vi_VN": "Loại media",
+              "de_DE": "Medientyp",
+              "es_ES": "Tipo de medio",
+              "pt_BR": "Tipo de mídia",
+              "fr_FR": "Type de média",
+              "ru_RU": "Тип медиа"
+            }
+          },
+          {
+            "key": "content",
+            "type": "text",
+            "label": {
+              "en_US": "Post text",
+              "zh_CN": "帖文案",
+              "zh_TW": "帖文案",
+              "ja_JP": "Post text",
+              "ko_KR": "Post text",
+              "th_TH": "Post text",
+              "id_ID": "Post text",
+              "ms_MY": "Post text",
+              "vi_VN": "Post text",
+              "de_DE": "Post text",
+              "es_ES": "Post text",
+              "pt_BR": "Post text",
+              "fr_FR": "Post text",
+              "ru_RU": "Post text"
+            }
+          },
+          {
+            "key": "mediaCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Media count",
+              "zh_CN": "媒体数量",
+              "zh_TW": "媒體數量",
+              "ja_JP": "メディア数",
+              "ko_KR": "미디어 수",
+              "th_TH": "จำนวนสื่อ",
+              "id_ID": "Jumlah media",
+              "ms_MY": "Bilangan media",
+              "vi_VN": "Số media",
+              "de_DE": "Medienanzahl",
+              "es_ES": "Cantidad de medios",
+              "pt_BR": "Quantidade de mídia",
+              "fr_FR": "Nombre de médias",
+              "ru_RU": "Кол-во медиа"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "zh_CN": "最终 URL",
+              "zh_TW": "最終 URL",
+              "ja_JP": "Final URL",
+              "ko_KR": "Final URL",
+              "th_TH": "Final URL",
+              "id_ID": "Final URL",
+              "ms_MY": "Final URL",
+              "vi_VN": "Final URL",
+              "de_DE": "Final URL",
+              "es_ES": "Final URL",
+              "pt_BR": "Final URL",
+              "fr_FR": "Final URL",
+              "ru_RU": "Final URL"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

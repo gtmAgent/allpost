@@ -1,0 +1,73 @@
+{
+  "version": 2,
+  "uuid": "47e85c8a-7091-4caa-8cbc-52cf585286f1",
+  "name": "推特图文发帖",
+  "description": "推特主页图文发帖",
+  "deviceType": "browser",
+  "socialCategoryId": 7,
+  "deviceId": 0,
+  "createdAt": 1790580856,
+  "updatedAt": 1792390502,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "6e33f3e7-bdcc-478f-b62e-ca175ca0eee2",
+      "name": "推特的主页",
+      "description": "推特主页连接",
+      "entryUrl": "https://x.com/home",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "8d1b55eb-8649-4168-b01a-15446566a23d",
+          "title": "点击post发帖",
+          "description": "",
+          "capturedAt": 1790581734,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://x.com/home",
+              "title": "Home / X",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "5852b367-8a59-4efa-8473-2ab4c2999fde",
+          "title": "点击输入文案，并附加图片",
+          "description": "点击输入文案，并附加图片",
+          "capturedAt": 1790581775,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://x.com/compose/post",
+              "title": "Home / X",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "ae875d41-fac4-4a4c-9967-ad8cc70cc8d1",
+          "title": "点击post发布",
+          "description": "有可能会弹出多次，多次点击直到发布成功为止",
+          "capturedAt": 1790581829,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://x.com/compose/post",
+              "title": "Home / X",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

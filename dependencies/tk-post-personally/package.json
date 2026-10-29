@@ -1,0 +1,938 @@
+{
+  "name": "tk-post-personally",
+  "version": "1.1.2",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "TikTok个人发帖",
+    "de_DE": "TikTok个人发帖",
+    "es_ES": "TikTok个人发帖",
+    "fr_FR": "TikTok个人发帖",
+    "id_ID": "TikTok个人发帖",
+    "ja_JP": "TikTok个人发帖",
+    "ko_KR": "TikTok个人发帖",
+    "ms_MY": "TikTok个人发帖",
+    "pt_BR": "TikTok个人发帖",
+    "ru_RU": "TikTok个人发帖",
+    "th_TH": "TikTok个人发帖",
+    "vi_VN": "TikTok个人发帖",
+    "zh_CN": "TikTok个人发帖",
+    "zh_TW": "TikTok个人发帖"
+  },
+  "description": {
+    "en_US": "Open TikTok Studio in the selected browser, upload a video or photos with caption, handle optional dialogs, and publish.",
+    "zh_CN": "在选定浏览器中打开 TikTok Studio，上传视频或图片并填写文案，处理可选弹窗后发布到个人账号。",
+    "zh_TW": "在選定瀏覽器中開啟 TikTok Studio，上傳影片或圖片並填寫文案，處理可選彈窗後發布到個人帳號。",
+    "ja_JP": "選択したブラウザで TikTok Studio を開き、動画または写真とキャプションをアップロードして公開します。",
+    "ko_KR": "선택한 브라우저에서 TikTok Studio를 열고 동영상/사진과 캡션을 업로드한 뒤 게시합니다.",
+    "th_TH": "Open TikTok Studio in the selected browser, upload a video or photos with caption, handle optional dialogs, and publish.",
+    "id_ID": "Open TikTok Studio in the selected browser, upload a video or photos with caption, handle optional dialogs, and publish.",
+    "ms_MY": "Open TikTok Studio in the selected browser, upload a video or photos with caption, handle optional dialogs, and publish.",
+    "vi_VN": "Open TikTok Studio in the selected browser, upload a video or photos with caption, handle optional dialogs, and publish.",
+    "de_DE": "Öffnet TikTok Studio im gewählten Browser, lädt Video oder Fotos mit Text hoch und veröffentlicht.",
+    "es_ES": "Abre TikTok Studio en el navegador elegido, sube vídeo o fotos con texto y publica.",
+    "pt_BR": "Abre o TikTok Studio no navegador escolhido, envia vídeo ou fotos com texto e publica.",
+    "fr_FR": "Ouvre TikTok Studio dans le navigateur choisi, envoie une vidéo ou des photos avec texte et publie.",
+    "ru_RU": "Открывает TikTok Studio в выбранном браузере, загружает видео или фото с текстом и публикует."
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Post content / devices",
+          "zh_CN": "发帖内容与设备",
+          "zh_TW": "發帖內容與裝置",
+          "ja_JP": "投稿内容とデバイス",
+          "ko_KR": "게시 내용/기기",
+          "th_TH": "Post content / devices",
+          "id_ID": "Post content / devices",
+          "ms_MY": "Post content / devices",
+          "vi_VN": "Post content / devices",
+          "de_DE": "Beitragsinhalt / Geräte",
+          "es_ES": "Contenido / dispositivos",
+          "pt_BR": "Conteúdo / dispositivos",
+          "fr_FR": "Contenu / appareils",
+          "ru_RU": "Контент / устройства"
+        },
+        "fields": [
+          {
+            "key": "media_type",
+            "type": "singleSelect",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "メディア種別",
+              "ko_KR": "미디어 유형",
+              "th_TH": "ประเภทสื่อ",
+              "id_ID": "Jenis media",
+              "ms_MY": "Jenis media",
+              "vi_VN": "Loại media",
+              "de_DE": "Medientyp",
+              "es_ES": "Tipo de medio",
+              "pt_BR": "Tipo de mídia",
+              "fr_FR": "Type de média",
+              "ru_RU": "Тип медиа"
+            },
+            "hint": {
+              "en_US": "Choose image posts (multiple images OK) or video posts (one video per post).",
+              "zh_CN": "选择发图片（可多张）还是发视频（每帖仅 1 个视频）。",
+              "zh_TW": "選擇發圖片（可多張）還是發影片（每帖僅 1 個影片）。",
+              "ja_JP": "画像投稿（複数可）か動画投稿（1投稿1本）かを選択。",
+              "ko_KR": "이미지 게시(여러 장 가능) 또는 동영상 게시(게시당 1개)를 선택.",
+              "th_TH": "เลือกว่าจะโพสต์รูป (หลายรูปได้) หรือวิดีโอ (โพสต์ละ 1 คลิป)",
+              "id_ID": "Pilih postingan gambar (boleh banyak) atau video (satu video per postingan).",
+              "ms_MY": "Pilih siaran imej (boleh berbilang) atau video (satu video setiap siaran).",
+              "vi_VN": "Chọn đăng ảnh (được nhiều ảnh) hoặc video (mỗi bài chỉ 1 video).",
+              "de_DE": "Bildbeiträge (mehrere OK) oder Videobeiträge (ein Video pro Post).",
+              "es_ES": "Publicaciones con imágenes (varias OK) o con vídeo (un vídeo por post).",
+              "pt_BR": "Posts com imagens (várias OK) ou com vídeo (um vídeo por post).",
+              "fr_FR": "Publications images (plusieurs OK) ou vidéo (une vidéo par post).",
+              "ru_RU": "Посты с изображениями (можно несколько) или видео (одно на пост)."
+            },
+            "options": [
+              {
+                "value": "image",
+                "label": {
+                  "en_US": "Images",
+                  "zh_CN": "图片",
+                  "zh_TW": "圖片",
+                  "ja_JP": "画像",
+                  "ko_KR": "이미지",
+                  "th_TH": "รูปภาพ",
+                  "id_ID": "Gambar",
+                  "ms_MY": "Imej",
+                  "vi_VN": "Ảnh",
+                  "de_DE": "Bilder",
+                  "es_ES": "Imágenes",
+                  "pt_BR": "Imagens",
+                  "fr_FR": "Images",
+                  "ru_RU": "Изображения"
+                }
+              },
+              {
+                "value": "video",
+                "label": {
+                  "en_US": "Video",
+                  "zh_CN": "视频",
+                  "zh_TW": "影片",
+                  "ja_JP": "動画",
+                  "ko_KR": "동영상",
+                  "th_TH": "วิดีโอ",
+                  "id_ID": "Video",
+                  "ms_MY": "Video",
+                  "vi_VN": "Video",
+                  "de_DE": "Video",
+                  "es_ES": "Vídeo",
+                  "pt_BR": "Vídeo",
+                  "fr_FR": "Vidéo",
+                  "ru_RU": "Видео"
+                }
+              }
+            ],
+            "defaultValue": "image"
+          },
+          {
+            "key": "contents",
+            "type": "text",
+            "label": {
+              "en_US": "Caption list",
+              "zh_CN": "文案列表",
+              "zh_TW": "文案列表",
+              "ja_JP": "キャプション一覧",
+              "ko_KR": "캡션 목록",
+              "th_TH": "Caption list",
+              "id_ID": "Caption list",
+              "ms_MY": "Caption list",
+              "vi_VN": "Caption list",
+              "de_DE": "Caption list",
+              "es_ES": "Caption list",
+              "pt_BR": "Caption list",
+              "fr_FR": "Caption list",
+              "ru_RU": "Caption list"
+            },
+            "hint": {
+              "en_US": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "zh_CN": "多条文案用 ==sep== 分隔（单条内可以换行）。开启「平均分配」时轮询分给各浏览器；关闭时每台浏览器各自发全部文案。",
+              "zh_TW": "多條文案用 ==sep== 分隔（單條內可以換行）。開啟「平均分配」時輪詢分給各瀏覽器；關閉時每台瀏覽器各自發全部文案。",
+              "ja_JP": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "ko_KR": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "th_TH": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "id_ID": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "ms_MY": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "vi_VN": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "de_DE": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "es_ES": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "pt_BR": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "fr_FR": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list.",
+              "ru_RU": "Separate captions with ==sep== (line breaks allowed inside one caption). With Even distribute ON: round-robin across browsers. OFF: each browser posts the full list."
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "even_distribute",
+            "type": "switch",
+            "label": {
+              "en_US": "Even distribute",
+              "zh_CN": "平均分配",
+              "zh_TW": "平均分配",
+              "ja_JP": "均等配分",
+              "ko_KR": "균등 분배",
+              "th_TH": "แบ่งเท่าๆ",
+              "id_ID": "Bagi rata",
+              "ms_MY": "Bahagi sama",
+              "vi_VN": "Chia đều",
+              "de_DE": "Gleichmäßig verteilen",
+              "es_ES": "Reparto equitativo",
+              "pt_BR": "Distribuir igualmente",
+              "fr_FR": "Répartir également",
+              "ru_RU": "Равномерное распределение"
+            },
+            "hint": {
+              "en_US": "ON (default): captions are round-robin assigned across browsers. OFF: each browser posts every caption (full list × browsers).",
+              "zh_CN": "开启（默认）：文案轮询均分到各浏览器。关闭：每台浏览器各自把全部文案发一遍。",
+              "zh_TW": "開啟（預設）：文案輪詢均分到各瀏覽器。關閉：每台瀏覽器各自把全部文案發一遍。",
+              "ja_JP": "ON（既定）：キャプションをブラウザ間でラウンドロビン配分。OFF：各ブラウザが全キャプションを投稿。",
+              "ko_KR": "켜짐(기본): 캡션을 브라우저에 라운드로빈 배정. 꺼짐: 각 브라우저가 전체 캡션을 게시.",
+              "th_TH": "เปิด (ค่าเริ่มต้น): แบ่งข้อความแบบวนรอบให้เบราว์เซอร์ ปิด: ทุกเครื่องโพสต์ข้อความทั้งหมด",
+              "id_ID": "ON (default): teks dibagi round-robin ke browser. OFF: setiap browser memposting seluruh daftar.",
+              "ms_MY": "ON (lalai): teks diagih round-robin ke pelayar. OFF: setiap pelayar menghantar semua teks.",
+              "vi_VN": "Bật (mặc định): nội dung chia vòng tròn cho các trình duyệt. Tắt: mỗi máy đăng hết danh sách.",
+              "de_DE": "AN (Standard): Texte round-robin auf Browser. AUS: jeder Browser postet die gesamte Liste.",
+              "es_ES": "ON (predeterminado): textos en round-robin entre navegadores. OFF: cada uno publica toda la lista.",
+              "pt_BR": "ON (padrão): textos em round-robin entre navegadores. OFF: cada um publica a lista inteira.",
+              "fr_FR": "ON (défaut) : textes en round-robin entre navigateurs. OFF : chacun publie toute la liste.",
+              "ru_RU": "ВКЛ (по умолчанию): тексты по кругу между браузерами. ВЫКЛ: каждый браузер публикует весь список."
+            },
+            "defaultValue": 1
+          },
+          {
+            "key": "images",
+            "type": "resource",
+            "label": {
+              "en_US": "Images",
+              "zh_CN": "图片",
+              "zh_TW": "圖片",
+              "ja_JP": "画像",
+              "ko_KR": "이미지",
+              "th_TH": "รูปภาพ",
+              "id_ID": "Gambar",
+              "ms_MY": "Imej",
+              "vi_VN": "Ảnh",
+              "de_DE": "Bilder",
+              "es_ES": "Imágenes",
+              "pt_BR": "Imagens",
+              "fr_FR": "Images",
+              "ru_RU": "Изображения"
+            },
+            "hint": {
+              "en_US": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "zh_CN": "图片资源池；每条子任务按 image_count 张循环取图（TikTok 最多约 35 张）。",
+              "zh_TW": "圖片資源池；每條子任務按 image_count 張循環取圖。",
+              "ja_JP": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "ko_KR": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "th_TH": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "id_ID": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "ms_MY": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "vi_VN": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "de_DE": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "es_ES": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "pt_BR": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "fr_FR": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35).",
+              "ru_RU": "Image pool; each post takes image_count images in cycle order (TikTok allows up to 35)."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-image"
+          },
+          {
+            "key": "image_count",
+            "type": "text",
+            "label": {
+              "en_US": "Images per post",
+              "zh_CN": "每帖图片张数",
+              "zh_TW": "每帖圖片張數",
+              "ja_JP": "投稿あたり画像枚数",
+              "ko_KR": "게시당 이미지 수",
+              "th_TH": "รูปต่อโพสต์",
+              "id_ID": "Gambar per postingan",
+              "ms_MY": "Imej setiap siaran",
+              "vi_VN": "Số ảnh mỗi bài",
+              "de_DE": "Bilder pro Post",
+              "es_ES": "Imágenes por publicación",
+              "pt_BR": "Imagens por post",
+              "fr_FR": "Images par publication",
+              "ru_RU": "Изображений на пост"
+            },
+            "hint": {
+              "en_US": "How many images each post takes from the pool (cycling). E.g. 2 → post1 uses #1-2, post2 uses #3-4, then wrap.",
+              "zh_CN": "每条发帖从图片池取几张（循环）。例如填 2：第 1 帖用第 1–2 张，第 2 帖用第 3–4 张，用完后从头继续。",
+              "zh_TW": "每條發文從圖片池取幾張（循環）。例如填 2：第 1 帖用第 1–2 張，第 2 帖用第 3–4 張，用完後從頭繼續。",
+              "ja_JP": "各投稿がプールから取る枚数（循環）。例: 2 → 1件目1-2枚、2件目3-4枚、尽きると先頭から。",
+              "ko_KR": "각 게시가 풀에서 가져갈 장수(순환). 예: 2 → 1번 1-2장, 2번 3-4장, 끝나면 처음부터.",
+              "th_TH": "จำนวนรูปต่อโพสต์จากคลัง (วนรอบ) เช่น 2 → โพสต์1 ใช้รูป1-2 แล้ววนเมื่อหมด",
+              "id_ID": "Berapa gambar per postingan dari pool (berputar). Mis. 2 → post1 #1-2, lalu ulang dari awal.",
+              "ms_MY": "Berapa imej setiap siaran dari kolam (berulang). Cth. 2 → siaran1 #1-2, lalu ulang dari awal.",
+              "vi_VN": "Mỗi bài lấy bao nhiêu ảnh từ kho (vòng lặp). Vd. 2 → bài 1 dùng #1-2, hết thì quay lại.",
+              "de_DE": "Bilder pro Post aus dem Pool (zyklisch). Z. B. 2 → Post1 #1-2, danach von vorn.",
+              "es_ES": "Imágenes por post del grupo (cíclico). P. ej. 2 → post1 #1-2, luego reinicia.",
+              "pt_BR": "Imagens por post do pool (cíclico). Ex.: 2 → post1 #1-2, depois reinicia.",
+              "fr_FR": "Images par post depuis la réserve (cyclique). Ex. 2 → post1 #1-2, puis recommence.",
+              "ru_RU": "Сколько изображений на пост из пула (по кругу). Напр. 2 → пост1 #1-2, затем сначала."
+            },
+            "inputType": "number",
+            "defaultValue": "1",
+            "showBySingleSelect": "media_type-image"
+          },
+          {
+            "key": "videos",
+            "type": "resource",
+            "label": {
+              "en_US": "Videos",
+              "zh_CN": "视频",
+              "zh_TW": "影片",
+              "ja_JP": "動画",
+              "ko_KR": "동영상",
+              "th_TH": "Videos",
+              "id_ID": "Videos",
+              "ms_MY": "Videos",
+              "vi_VN": "Videos",
+              "de_DE": "Videos",
+              "es_ES": "Videos",
+              "pt_BR": "Videos",
+              "fr_FR": "Videos",
+              "ru_RU": "Videos"
+            },
+            "hint": {
+              "en_US": "Video pool; each post takes 1 video in cycle order.",
+              "zh_CN": "视频资源池；每条子任务按顺序循环取 1 个视频。",
+              "zh_TW": "影片資源池；每條子任務按順序循環取 1 個影片。",
+              "ja_JP": "Video pool; each post takes 1 video in cycle order.",
+              "ko_KR": "Video pool; each post takes 1 video in cycle order.",
+              "th_TH": "Video pool; each post takes 1 video in cycle order.",
+              "id_ID": "Video pool; each post takes 1 video in cycle order.",
+              "ms_MY": "Video pool; each post takes 1 video in cycle order.",
+              "vi_VN": "Video pool; each post takes 1 video in cycle order.",
+              "de_DE": "Video pool; each post takes 1 video in cycle order.",
+              "es_ES": "Video pool; each post takes 1 video in cycle order.",
+              "pt_BR": "Video pool; each post takes 1 video in cycle order.",
+              "fr_FR": "Video pool; each post takes 1 video in cycle order.",
+              "ru_RU": "Video pool; each post takes 1 video in cycle order."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".mp4",
+              ".mov",
+              ".webm",
+              ".m4v"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-video"
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Fingerprint browsers. Assignment follows the Even distribute switch (split vs each posts all).",
+              "zh_CN": "指纹浏览器。任务如何分发由上方「平均分配」开关决定（均分或每台发完全部）。",
+              "zh_TW": "指紋瀏覽器。任務如何分發由上方「平均分配」開關決定（均分或每台發完全部）。",
+              "ja_JP": "ブラウザプロファイル。配分は「均等配分」スイッチに従う（分割／各台が全件）。",
+              "ko_KR": "지문 브라우저. 배정은 「균등 분배」스위치에 따름(분할 / 각 대 전체).",
+              "th_TH": "โปรไฟล์เบราว์เซอร์ การแบ่งงานตามสวิตช์「แบ่งเท่าๆ」(แบ่ง / ทุกเครื่องโพสต์หมด)",
+              "id_ID": "Profil browser fingerprint. Pembagian mengikuti sakelar Bagi rata (bagi / tiap mesin semua).",
+              "ms_MY": "Profil pelayar cap jari. Pembahagian ikut suis Bahagi sama (bahagi / setiap mesin semua).",
+              "vi_VN": "Hồ sơ trình duyệt. Cách chia theo công tắc Chia đều (chia đều / mỗi máy đăng hết).",
+              "de_DE": "Fingerprint-Browser. Zuweisung folgt dem Schalter Gleichmäßig (teilen / jeder alles).",
+              "es_ES": "Navegadores fingerprint. La asignación sigue el interruptor de reparto (dividir / cada uno todo).",
+              "pt_BR": "Navegadores fingerprint. A atribuição segue o interruptor (dividir / cada um tudo).",
+              "fr_FR": "Navigateurs fingerprint. L attribution suit le commutateur (répartir / chacun tout).",
+              "ru_RU": "Fingerprint-браузеры. Распределение по переключателю (делить / каждый все)."
+            },
+            "single": false,
+            "platform": "tiktok",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "スケジュール",
+          "ko_KR": "일정",
+          "th_TH": "กำหนดการ",
+          "id_ID": "Jadwal",
+          "ms_MY": "Jadual",
+          "vi_VN": "Lịch trình",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "pt_BR": "Agendamento",
+          "fr_FR": "Planification",
+          "ru_RU": "Расписание"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "th_TH": "ขีดจำกัดรายวัน",
+              "id_ID": "Batas harian",
+              "ms_MY": "Had harian",
+              "vi_VN": "Giới hạn hàng ngày",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "pt_BR": "Limite diário",
+              "fr_FR": "Limite quotidienne",
+              "ru_RU": "Дневной лимит"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務",
+              "ja_JP": "各デバイスに1日あたり割り当てる最大タスク数",
+              "ko_KR": "기기당 하루 최대 할당 작업 수",
+              "th_TH": "จำนวนงานสูงสุดที่มอบหมายต่ออุปกรณ์ต่อวัน",
+              "id_ID": "Maks. tugas yang dialokasikan per perangkat per hari",
+              "ms_MY": "Maks tugas diperuntukkan kepada setiap peranti sehari",
+              "vi_VN": "Số nhiệm vụ tối đa gán cho mỗi thiết bị mỗi ngày",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas asignadas a cada dispositivo por día",
+              "pt_BR": "Máx. de tarefas atribuídas a cada dispositivo por dia",
+              "fr_FR": "Nombre max. de tâches par appareil et par jour",
+              "ru_RU": "Макс. число задач на устройство в день"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำ (วินาที)",
+              "id_ID": "Interval min (d)",
+              "ms_MY": "Selang min (s)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "ru_RU": "Мин. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 간 최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval min antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Мин. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุด (วินาที)",
+              "id_ID": "Interval maks (d)",
+              "ms_MY": "Selang maks (s)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "ru_RU": "Макс. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 간 최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุดระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval maks antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Макс. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "毎日の開始時刻",
+              "ko_KR": "일일 시작 시각",
+              "th_TH": "เวลาเริ่มรายวัน",
+              "id_ID": "Waktu mulai harian",
+              "ms_MY": "Masa mula harian",
+              "vi_VN": "Giờ bắt đầu mỗi ngày",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "pt_BR": "Horário de início diário",
+              "fr_FR": "Heure de début quotidienne",
+              "ru_RU": "Ежедневное время начала"
+            },
+            "defaultValue": "09:00",
+            "hint": {
+              "en_US": "Local clock start. If later than end time, the window spans midnight (e.g. 22:00→06:00) for timezone offset.",
+              "zh_CN": "本机本地开始时刻。若晚于结束时刻则跨天（如 22:00→06:00），便于按国外时差对齐。",
+              "zh_TW": "本機本地開始時刻。若晚於結束時刻則跨天（如 22:00→06:00），便於按國外時差對齊。",
+              "ja_JP": "ローカル開始時刻。終了より遅い場合は日またぎ（例: 22:00→06:00）。時差合わせ用。",
+              "ko_KR": "로컬 시작 시각. 종료보다 늦으면 자정 넘김(예: 22:00→06:00). 시차 맞춤용.",
+              "th_TH": "เวลาเริ่มตามเครื่อง ถ้าช้ากว่าเวลาสิ้นสุดจะข้ามวัน (เช่น 22:00→06:00) สำหรับชดเชยโซนเวลา",
+              "id_ID": "Waktu mulai lokal. Jika lebih lambat dari akhir, lintas tengah malam (mis. 22:00→06:00) untuk selisih zona.",
+              "ms_MY": "Masa mula tempatan. Jika lebih lambat daripada tamat, merentas tengah malam (cth. 22:00→06:00) untuk zon masa.",
+              "vi_VN": "Giờ bắt đầu theo máy. Nếu muộn hơn giờ kết thúc thì qua đêm (vd. 22:00→06:00) để khớp múi giờ.",
+              "de_DE": "Lokaler Start. Später als Ende = über Mitternacht (z. B. 22:00→06:00) für Zeitzonen.",
+              "es_ES": "Inicio local. Si es posterior al fin, cruza medianoche (p. ej. 22:00→06:00) por desfase horario.",
+              "pt_BR": "Início local. Se for depois do fim, cruza meia-noite (ex.: 22:00→06:00) por fuso.",
+              "fr_FR": "Début local. S il est après la fin, traverse minuit (ex. 22:00→06:00) pour le décalage horaire.",
+              "ru_RU": "Локальное начало. Если позже конца — через полночь (напр. 22:00→06:00) из‑за часового пояса."
+            }
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "毎日の終了時刻",
+              "ko_KR": "일일 종료 시각",
+              "th_TH": "เวลาสิ้นสุดรายวัน",
+              "id_ID": "Waktu selesai harian",
+              "ms_MY": "Masa tamat harian",
+              "vi_VN": "Giờ kết thúc mỗi ngày",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "pt_BR": "Horário de término diário",
+              "fr_FR": "Heure de fin quotidienne",
+              "ru_RU": "Ежедневное время окончания"
+            },
+            "defaultValue": "18:00",
+            "hint": {
+              "en_US": "Local clock end. Earlier than start means overnight window ending next calendar day.",
+              "zh_CN": "本机本地结束时刻。若早于开始时刻，表示跨天窗口在次日结束。",
+              "zh_TW": "本機本地結束時刻。若早於開始時刻，表示跨天窗口在次日結束。",
+              "ja_JP": "ローカル終了時刻。開始より早い場合は翌日終わりの日またぎ窓。",
+              "ko_KR": "로컬 종료 시각. 시작보다 이르면 다음 날 끝나는 자정 넘김 구간.",
+              "th_TH": "เวลาสิ้นสุดตามเครื่อง ถ้าเร็วกว่าเวลาเริ่ม แสดงว่าช่วงข้ามวันจบวันถัดไป",
+              "id_ID": "Waktu akhir lokal. Lebih awal dari mulai = jendela lintas hari berakhir keesokan harinya.",
+              "ms_MY": "Masa tamat tempatan. Lebih awal daripada mula = tetingkap merentas hari berakhir keesokan hari.",
+              "vi_VN": "Giờ kết thúc theo máy. Sớm hơn giờ bắt đầu = cửa sổ qua đêm kết thúc ngày hôm sau.",
+              "de_DE": "Lokales Ende. Früher als Start = Übernachtfenster endet am Folgetag.",
+              "es_ES": "Fin local. Si es anterior al inicio, la ventana nocturna termina al día siguiente.",
+              "pt_BR": "Fim local. Se for antes do início, a janela overnight termina no dia seguinte.",
+              "fr_FR": "Fin locale. Si elle est avant le début, la fenêtre overnight se termine le lendemain.",
+              "ru_RU": "Локальный конец. Если раньше начала — ночное окно заканчивается на следующий день."
+            }
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Post content",
+          "zh_CN": "发帖内容",
+          "zh_TW": "發文內容",
+          "ja_JP": "投稿内容",
+          "ko_KR": "게시 내용",
+          "th_TH": "เนื้อหาโพสต์",
+          "id_ID": "Konten postingan",
+          "ms_MY": "Kandungan siaran",
+          "vi_VN": "Nội dung bài đăng",
+          "de_DE": "Beitragsinhalt",
+          "es_ES": "Contenido de la publicación",
+          "pt_BR": "Conteúdo da publicação",
+          "fr_FR": "Contenu de la publication",
+          "ru_RU": "Содержимое поста"
+        },
+        "fields": [
+          {
+            "key": "media_type",
+            "type": "singleSelect",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "メディア種別",
+              "ko_KR": "미디어 유형",
+              "th_TH": "ประเภทสื่อ",
+              "id_ID": "Jenis media",
+              "ms_MY": "Jenis media",
+              "vi_VN": "Loại media",
+              "de_DE": "Medientyp",
+              "es_ES": "Tipo de medio",
+              "pt_BR": "Tipo de mídia",
+              "fr_FR": "Type de média",
+              "ru_RU": "Тип медиа"
+            },
+            "hint": {
+              "en_US": "Choose image posts (multiple images OK) or video posts (one video per post).",
+              "zh_CN": "选择发图片（可多张）还是发视频（每帖仅 1 个视频）。",
+              "zh_TW": "選擇發圖片（可多張）還是發影片（每帖僅 1 個影片）。",
+              "ja_JP": "画像投稿（複数可）か動画投稿（1投稿1本）かを選択。",
+              "ko_KR": "이미지 게시(여러 장 가능) 또는 동영상 게시(게시당 1개)를 선택.",
+              "th_TH": "เลือกว่าจะโพสต์รูป (หลายรูปได้) หรือวิดีโอ (โพสต์ละ 1 คลิป)",
+              "id_ID": "Pilih postingan gambar (boleh banyak) atau video (satu video per postingan).",
+              "ms_MY": "Pilih siaran imej (boleh berbilang) atau video (satu video setiap siaran).",
+              "vi_VN": "Chọn đăng ảnh (được nhiều ảnh) hoặc video (mỗi bài chỉ 1 video).",
+              "de_DE": "Bildbeiträge (mehrere OK) oder Videobeiträge (ein Video pro Post).",
+              "es_ES": "Publicaciones con imágenes (varias OK) o con vídeo (un vídeo por post).",
+              "pt_BR": "Posts com imagens (várias OK) ou com vídeo (um vídeo por post).",
+              "fr_FR": "Publications images (plusieurs OK) ou vidéo (une vidéo par post).",
+              "ru_RU": "Посты с изображениями (можно несколько) или видео (одно на пост)."
+            },
+            "options": [
+              {
+                "value": "image",
+                "label": {
+                  "en_US": "Images",
+                  "zh_CN": "图片",
+                  "zh_TW": "圖片",
+                  "ja_JP": "画像",
+                  "ko_KR": "이미지",
+                  "th_TH": "รูปภาพ",
+                  "id_ID": "Gambar",
+                  "ms_MY": "Imej",
+                  "vi_VN": "Ảnh",
+                  "de_DE": "Bilder",
+                  "es_ES": "Imágenes",
+                  "pt_BR": "Imagens",
+                  "fr_FR": "Images",
+                  "ru_RU": "Изображения"
+                }
+              },
+              {
+                "value": "video",
+                "label": {
+                  "en_US": "Video",
+                  "zh_CN": "视频",
+                  "zh_TW": "影片",
+                  "ja_JP": "動画",
+                  "ko_KR": "동영상",
+                  "th_TH": "วิดีโอ",
+                  "id_ID": "Video",
+                  "ms_MY": "Video",
+                  "vi_VN": "Video",
+                  "de_DE": "Video",
+                  "es_ES": "Vídeo",
+                  "pt_BR": "Vídeo",
+                  "fr_FR": "Vidéo",
+                  "ru_RU": "Видео"
+                }
+              }
+            ],
+            "defaultValue": "video"
+          },
+          {
+            "key": "content",
+            "type": "text",
+            "label": {
+              "en_US": "Caption",
+              "zh_CN": "帖子文案",
+              "zh_TW": "貼文文案",
+              "ja_JP": "キャプション",
+              "ko_KR": "캡션",
+              "th_TH": "ข้อความโพสต์",
+              "id_ID": "Teks postingan",
+              "ms_MY": "Teks siaran",
+              "vi_VN": "Nội dung chữ",
+              "de_DE": "Text",
+              "es_ES": "Texto",
+              "pt_BR": "Texto",
+              "fr_FR": "Texte",
+              "ru_RU": "Текст"
+            },
+            "hint": {
+              "en_US": "Caption text for the post",
+              "zh_CN": "帖子文字内容",
+              "zh_TW": "貼文文字內容",
+              "ja_JP": "投稿テキスト",
+              "ko_KR": "게시 텍스트",
+              "th_TH": "ข้อความโพสต์",
+              "id_ID": "Teks postingan",
+              "ms_MY": "Teks siaran",
+              "vi_VN": "Nội dung chữ của bài",
+              "de_DE": "Beitragstext",
+              "es_ES": "Texto de la publicación",
+              "pt_BR": "Texto da publicação",
+              "fr_FR": "Texte de la publication",
+              "ru_RU": "Текст поста"
+            },
+            "multiline": true,
+            "defaultValue": ""
+          },
+          {
+            "key": "images",
+            "type": "resource",
+            "label": {
+              "en_US": "Images",
+              "zh_CN": "图片",
+              "zh_TW": "圖片",
+              "ja_JP": "画像",
+              "ko_KR": "이미지",
+              "th_TH": "รูปภาพ",
+              "id_ID": "Gambar",
+              "ms_MY": "Imej",
+              "vi_VN": "Ảnh",
+              "de_DE": "Bilder",
+              "es_ES": "Imágenes",
+              "pt_BR": "Imagens",
+              "fr_FR": "Images",
+              "ru_RU": "Изображения"
+            },
+            "hint": {
+              "en_US": "One or more images for this post (Images mode only).",
+              "zh_CN": "本帖要发的一张或多张图片（仅图片模式）。",
+              "zh_TW": "本帖要發的一張或多張圖片（僅圖片模式）。",
+              "ja_JP": "この投稿の画像（画像モードのみ、複数可）。",
+              "ko_KR": "이 게시에 올릴 이미지(이미지 모드만, 여러 장 가능).",
+              "th_TH": "รูปสำหรับโพสต์นี้ (โหมดรูปเท่านั้น หลายรูปได้)",
+              "id_ID": "Satu atau lebih gambar untuk postingan ini (mode Gambar saja).",
+              "ms_MY": "Satu atau lebih imej untuk siaran ini (mod Imej sahaja).",
+              "vi_VN": "Một hoặc nhiều ảnh cho bài này (chỉ chế độ Ảnh).",
+              "de_DE": "Ein oder mehrere Bilder für diesen Post (nur Bildmodus).",
+              "es_ES": "Una o más imágenes para este post (solo modo Imágenes).",
+              "pt_BR": "Uma ou mais imagens para este post (somente modo Imagens).",
+              "fr_FR": "Une ou plusieurs images pour ce post (mode Images uniquement).",
+              "ru_RU": "Одно или несколько изображений для этого поста (только режим изображений)."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-image"
+          },
+          {
+            "key": "video",
+            "type": "resource",
+            "label": {
+              "en_US": "Video",
+              "zh_CN": "视频",
+              "zh_TW": "影片",
+              "ja_JP": "動画",
+              "ko_KR": "동영상",
+              "th_TH": "วิดีโอ",
+              "id_ID": "Video",
+              "ms_MY": "Video",
+              "vi_VN": "Video",
+              "de_DE": "Video",
+              "es_ES": "Vídeo",
+              "pt_BR": "Vídeo",
+              "fr_FR": "Vidéo",
+              "ru_RU": "Видео"
+            },
+            "hint": {
+              "en_US": "Exactly one video for this post (Video mode only).",
+              "zh_CN": "本帖要发的单个视频（仅视频模式，每帖 1 个）。",
+              "zh_TW": "本帖要發的單個影片（僅影片模式，每帖 1 個）。",
+              "ja_JP": "この投稿の動画1本（動画モードのみ）。",
+              "ko_KR": "이 게시에 올릴 동영상 1개(동영상 모드만).",
+              "th_TH": "วิดีโอ 1 คลิปสำหรับโพสต์นี้ (โหมดวิดีโอเท่านั้น)",
+              "id_ID": "Tepat satu video untuk postingan ini (mode Video saja).",
+              "ms_MY": "Tepat satu video untuk siaran ini (mod Video sahaja).",
+              "vi_VN": "Đúng một video cho bài này (chỉ chế độ Video).",
+              "de_DE": "Genau ein Video für diesen Post (nur Videomodus).",
+              "es_ES": "Exactamente un vídeo para este post (solo modo Vídeo).",
+              "pt_BR": "Exatamente um vídeo para este post (somente modo Vídeo).",
+              "fr_FR": "Exactement une vidéo pour ce post (mode Vidéo uniquement).",
+              "ru_RU": "Ровно одно видео для этого поста (только режим видео)."
+            },
+            "allowMultiple": false,
+            "extensions": [
+              ".mp4",
+              ".mov",
+              ".webm",
+              ".m4v"
+            ],
+            "defaultValue": null,
+            "showBySingleSelect": "media_type-video"
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "Run result",
+          "ko_KR": "Run result",
+          "th_TH": "Run result",
+          "id_ID": "Run result",
+          "ms_MY": "Run result",
+          "vi_VN": "Run result",
+          "de_DE": "Run result",
+          "es_ES": "Run result",
+          "pt_BR": "Run result",
+          "fr_FR": "Run result",
+          "ru_RU": "Run result"
+        },
+        "fields": [
+          {
+            "key": "mediaType",
+            "type": "text",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒體類型",
+              "ja_JP": "Media type",
+              "ko_KR": "Media type",
+              "th_TH": "Media type",
+              "id_ID": "Media type",
+              "ms_MY": "Media type",
+              "vi_VN": "Media type",
+              "de_DE": "Media type",
+              "es_ES": "Media type",
+              "pt_BR": "Media type",
+              "fr_FR": "Media type",
+              "ru_RU": "Media type"
+            }
+          },
+          {
+            "key": "content",
+            "type": "text",
+            "label": {
+              "en_US": "Caption",
+              "zh_CN": "文案",
+              "zh_TW": "文案",
+              "ja_JP": "Caption",
+              "ko_KR": "Caption",
+              "th_TH": "Caption",
+              "id_ID": "Caption",
+              "ms_MY": "Caption",
+              "vi_VN": "Caption",
+              "de_DE": "Caption",
+              "es_ES": "Caption",
+              "pt_BR": "Caption",
+              "fr_FR": "Caption",
+              "ru_RU": "Caption"
+            }
+          },
+          {
+            "key": "mediaCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Media count",
+              "zh_CN": "媒体数量",
+              "zh_TW": "媒體數量",
+              "ja_JP": "Media count",
+              "ko_KR": "Media count",
+              "th_TH": "Media count",
+              "id_ID": "Media count",
+              "ms_MY": "Media count",
+              "vi_VN": "Media count",
+              "de_DE": "Media count",
+              "es_ES": "Media count",
+              "pt_BR": "Media count",
+              "fr_FR": "Media count",
+              "ru_RU": "Media count"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "zh_CN": "最终页面",
+              "zh_TW": "最終頁面",
+              "ja_JP": "Final URL",
+              "ko_KR": "Final URL",
+              "th_TH": "Final URL",
+              "id_ID": "Final URL",
+              "ms_MY": "Final URL",
+              "vi_VN": "Final URL",
+              "de_DE": "Final URL",
+              "es_ES": "Final URL",
+              "pt_BR": "Final URL",
+              "fr_FR": "Final URL",
+              "ru_RU": "Final URL"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format": "xport-github-project",
+  "formatVersion": 1,
+  "kind": "workflow",
+  "exportedAt": 1793238965,
+  "workflow": {
+    "cmd": "all-post",
+    "name": "多平台同素材发帖",
+    "allowedAutomationCmds": [
+      "fb-post",
+      "ins-post",
+      "th-post",
+      "tk-post-personally",
+      "twitter-create-post-with-media"
+    ]
+  }
+}

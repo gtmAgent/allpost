@@ -1,0 +1,466 @@
+{
+  "name": "all-post",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Multi-platform post",
+    "zh_CN": "多平台同素材发帖",
+    "zh_TW": "多平台同素材發帖",
+    "ja_JP": "マルチプラットフォーム投稿",
+    "ko_KR": "멀티 플랫폼 게시",
+    "th_TH": "โพสต์หลายแพลตฟอร์ม",
+    "id_ID": "Posting multi-platform",
+    "ms_MY": "Siaran pelbagai platform",
+    "vi_VN": "Đăng đa nền tảng",
+    "de_DE": "Multi-Plattform-Posting",
+    "es_ES": "Publicación multiplataforma",
+    "pt_BR": "Publicação multiplataforma",
+    "fr_FR": "Publication multi-plateforme",
+    "ru_RU": "Мультиплатформенный постинг"
+  },
+  "description": {
+    "en_US": "Post the same captions and media to Facebook, Instagram, Threads, TikTok and X in parallel. Captions cycle; each media item is used once per channel.",
+    "zh_CN": "用同一套文案与素材并行发到 Facebook、Instagram、Threads、TikTok、X。文案循环使用；每个素材在渠道内只用一次。",
+    "zh_TW": "用同一套文案與素材並行發到 Facebook、Instagram、Threads、TikTok、X。文案循環使用；每個素材在渠道內只用一次。",
+    "ja_JP": "同一のキャプションと素材を FB/IG/Threads/TikTok/X に並列投稿。キャプションは循環、素材はチャネル内で1回のみ。",
+    "ko_KR": "동일 캡션·소재를 FB/IG/Threads/TikTok/X에 병렬 게시. 캡션 순환, 채널 내 소재 1회 사용.",
+    "th_TH": "โพสต์ข้อความและสื่อชุดเดียวกันไป FB/IG/Threads/TikTok/X แบบขนาน วนข้อความ สื่อใช้ครั้งเดียวต่อช่องทาง",
+    "id_ID": "Posting caption & media yang sama ke FB/IG/Threads/TikTok/X secara paralel. Caption berulang; media sekali per kanal.",
+    "ms_MY": "Siar teks & media sama ke FB/IG/Threads/TikTok/X secara selari. Teks berulang; media sekali setiap saluran.",
+    "vi_VN": "Đăng cùng nội dung & media lên FB/IG/Threads/TikTok/X song song. Nội dung lặp; media dùng một lần mỗi kênh.",
+    "de_DE": "Gleiche Texte und Medien parallel auf FB/IG/Threads/TikTok/X. Texte zyklisch; Medien einmal pro Kanal.",
+    "es_ES": "Misma copia y medios en paralelo en FB/IG/Threads/TikTok/X. Textos en ciclo; medios una vez por canal.",
+    "pt_BR": "Mesmos textos e mídias em paralelo no FB/IG/Threads/TikTok/X. Textos em ciclo; mídia uma vez por canal.",
+    "fr_FR": "Mêmes textes et médias en parallèle sur FB/IG/Threads/TikTok/X. Textes en cycle ; médias une fois par canal.",
+    "ru_RU": "Одни тексты и медиа параллельно на FB/IG/Threads/TikTok/X. Тексты по кругу; медиа один раз на канал."
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-workflow-sdk": "file:../xport_workflow_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportWorkflow": {
+    "workflowRunConfig": [
+      {
+        "title": {
+          "en_US": "Content",
+          "zh_CN": "素材与文案",
+          "zh_TW": "素材与文案",
+          "ja_JP": "Content",
+          "ko_KR": "Content",
+          "th_TH": "Content",
+          "id_ID": "Content",
+          "ms_MY": "Content",
+          "vi_VN": "Content",
+          "de_DE": "Content",
+          "es_ES": "Content",
+          "pt_BR": "Content",
+          "fr_FR": "Content",
+          "ru_RU": "Content"
+        },
+        "fields": [
+          {
+            "key": "media_type",
+            "type": "singleSelect",
+            "label": {
+              "en_US": "Media type",
+              "zh_CN": "媒体类型",
+              "zh_TW": "媒体类型",
+              "ja_JP": "Media type",
+              "ko_KR": "Media type",
+              "th_TH": "Media type",
+              "id_ID": "Media type",
+              "ms_MY": "Media type",
+              "vi_VN": "Media type",
+              "de_DE": "Media type",
+              "es_ES": "Media type",
+              "pt_BR": "Media type",
+              "fr_FR": "Media type",
+              "ru_RU": "Media type"
+            },
+            "hint": {
+              "en_US": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "zh_CN": "图片：每帖 1 张。视频：每帖 1 个。素材在同一渠道内只用一次。",
+              "zh_TW": "图片：每帖 1 张。视频：每帖 1 个。素材在同一渠道内只用一次。",
+              "ja_JP": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "ko_KR": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "th_TH": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "id_ID": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "ms_MY": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "vi_VN": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "de_DE": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "es_ES": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "pt_BR": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "fr_FR": "Image: one image per post. Video: one video per post. Media is unique within each channel.",
+              "ru_RU": "Image: one image per post. Video: one video per post. Media is unique within each channel."
+            },
+            "options": [
+              {
+                "value": "image",
+                "label": {
+                  "en_US": "Images",
+                  "zh_CN": "图片",
+                  "zh_TW": "图片",
+                  "ja_JP": "Images",
+                  "ko_KR": "Images",
+                  "th_TH": "Images",
+                  "id_ID": "Images",
+                  "ms_MY": "Images",
+                  "vi_VN": "Images",
+                  "de_DE": "Images",
+                  "es_ES": "Images",
+                  "pt_BR": "Images",
+                  "fr_FR": "Images",
+                  "ru_RU": "Images"
+                }
+              },
+              {
+                "value": "video",
+                "label": {
+                  "en_US": "Video",
+                  "zh_CN": "视频",
+                  "zh_TW": "视频",
+                  "ja_JP": "Video",
+                  "ko_KR": "Video",
+                  "th_TH": "Video",
+                  "id_ID": "Video",
+                  "ms_MY": "Video",
+                  "vi_VN": "Video",
+                  "de_DE": "Video",
+                  "es_ES": "Video",
+                  "pt_BR": "Video",
+                  "fr_FR": "Video",
+                  "ru_RU": "Video"
+                }
+              }
+            ],
+            "defaultValue": "video"
+          },
+          {
+            "key": "captions",
+            "type": "text",
+            "label": {
+              "en_US": "Captions",
+              "zh_CN": "文案列表",
+              "zh_TW": "文案列表",
+              "ja_JP": "Captions",
+              "ko_KR": "Captions",
+              "th_TH": "Captions",
+              "id_ID": "Captions",
+              "ms_MY": "Captions",
+              "vi_VN": "Captions",
+              "de_DE": "Captions",
+              "es_ES": "Captions",
+              "pt_BR": "Captions",
+              "fr_FR": "Captions",
+              "ru_RU": "Captions"
+            },
+            "hint": {
+              "en_US": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "zh_CN": "多条文案用 ==sep== 分隔（单条内可换行）。文案按素材循环。例：3 条文案 + 4 个视频 → 发 4 帖，文案为 1、2、3、1。",
+              "zh_TW": "多条文案用 ==sep== 分隔（单条内可换行）。文案按素材循环。例：3 条文案 + 4 个视频 → 发 4 帖，文案为 1、2、3、1。",
+              "ja_JP": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "ko_KR": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "th_TH": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "id_ID": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "ms_MY": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "vi_VN": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "de_DE": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "es_ES": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "pt_BR": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "fr_FR": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1.",
+              "ru_RU": "Separate captions with ==sep== (line breaks OK inside one caption). Captions cycle across media. Example: 3 captions + 4 videos → 4 posts with captions 1,2,3,1."
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "images",
+            "type": "resource",
+            "label": {
+              "en_US": "Images",
+              "zh_CN": "图片",
+              "zh_TW": "图片",
+              "ja_JP": "Images",
+              "ko_KR": "Images",
+              "th_TH": "Images",
+              "id_ID": "Images",
+              "ms_MY": "Images",
+              "vi_VN": "Images",
+              "de_DE": "Images",
+              "es_ES": "Images",
+              "pt_BR": "Images",
+              "fr_FR": "Images",
+              "ru_RU": "Images"
+            },
+            "hint": {
+              "en_US": "Image pool. Post count = number of images; each image used once per channel.",
+              "zh_CN": "图片池。发帖数 = 图片数；每张图在渠道内只用一次。",
+              "zh_TW": "图片池。发帖数 = 图片数；每张图在渠道内只用一次。",
+              "ja_JP": "Image pool. Post count = number of images; each image used once per channel.",
+              "ko_KR": "Image pool. Post count = number of images; each image used once per channel.",
+              "th_TH": "Image pool. Post count = number of images; each image used once per channel.",
+              "id_ID": "Image pool. Post count = number of images; each image used once per channel.",
+              "ms_MY": "Image pool. Post count = number of images; each image used once per channel.",
+              "vi_VN": "Image pool. Post count = number of images; each image used once per channel.",
+              "de_DE": "Image pool. Post count = number of images; each image used once per channel.",
+              "es_ES": "Image pool. Post count = number of images; each image used once per channel.",
+              "pt_BR": "Image pool. Post count = number of images; each image used once per channel.",
+              "fr_FR": "Image pool. Post count = number of images; each image used once per channel.",
+              "ru_RU": "Image pool. Post count = number of images; each image used once per channel."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-image"
+          },
+          {
+            "key": "videos",
+            "type": "resource",
+            "label": {
+              "en_US": "Videos",
+              "zh_CN": "视频",
+              "zh_TW": "视频",
+              "ja_JP": "Videos",
+              "ko_KR": "Videos",
+              "th_TH": "Videos",
+              "id_ID": "Videos",
+              "ms_MY": "Videos",
+              "vi_VN": "Videos",
+              "de_DE": "Videos",
+              "es_ES": "Videos",
+              "pt_BR": "Videos",
+              "fr_FR": "Videos",
+              "ru_RU": "Videos"
+            },
+            "hint": {
+              "en_US": "Video pool. Post count = number of videos; each video used once per channel.",
+              "zh_CN": "视频池。发帖数 = 视频数；每个视频在渠道内只用一次。",
+              "zh_TW": "视频池。发帖数 = 视频数；每个视频在渠道内只用一次。",
+              "ja_JP": "Video pool. Post count = number of videos; each video used once per channel.",
+              "ko_KR": "Video pool. Post count = number of videos; each video used once per channel.",
+              "th_TH": "Video pool. Post count = number of videos; each video used once per channel.",
+              "id_ID": "Video pool. Post count = number of videos; each video used once per channel.",
+              "ms_MY": "Video pool. Post count = number of videos; each video used once per channel.",
+              "vi_VN": "Video pool. Post count = number of videos; each video used once per channel.",
+              "de_DE": "Video pool. Post count = number of videos; each video used once per channel.",
+              "es_ES": "Video pool. Post count = number of videos; each video used once per channel.",
+              "pt_BR": "Video pool. Post count = number of videos; each video used once per channel.",
+              "fr_FR": "Video pool. Post count = number of videos; each video used once per channel.",
+              "ru_RU": "Video pool. Post count = number of videos; each video used once per channel."
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".mp4",
+              ".mov",
+              ".webm",
+              ".m4v"
+            ],
+            "defaultValue": [],
+            "showBySingleSelect": "media_type-video"
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Browsers",
+          "zh_CN": "浏览器",
+          "zh_TW": "浏览器",
+          "ja_JP": "Browsers",
+          "ko_KR": "Browsers",
+          "th_TH": "Browsers",
+          "id_ID": "Browsers",
+          "ms_MY": "Browsers",
+          "vi_VN": "Browsers",
+          "de_DE": "Browsers",
+          "es_ES": "Browsers",
+          "pt_BR": "Browsers",
+          "fr_FR": "Browsers",
+          "ru_RU": "Browsers"
+        },
+        "fields": [
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "浏览器",
+              "ja_JP": "Browsers",
+              "ko_KR": "Browsers",
+              "th_TH": "Browsers",
+              "id_ID": "Browsers",
+              "ms_MY": "Browsers",
+              "vi_VN": "Browsers",
+              "de_DE": "Browsers",
+              "es_ES": "Browsers",
+              "pt_BR": "Browsers",
+              "fr_FR": "Browsers",
+              "ru_RU": "Browsers"
+            },
+            "hint": {
+              "en_US": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "zh_CN": "勾选 Facebook / Instagram / Threads / TikTok / X 浏览器；按平台自动路由。不同浏览器并行发帖，同一浏览器多帖仍串行。同一平台浏览器多于素材时多余跳过。",
+              "zh_TW": "勾選 Facebook / Instagram / Threads / TikTok / X 瀏覽器；按平台自動路由。不同瀏覽器並行發帖，同一瀏覽器多帖仍串行。同一平台瀏覽器多於素材時多餘跳過。",
+              "ja_JP": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "ko_KR": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "th_TH": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "id_ID": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "ms_MY": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "vi_VN": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "de_DE": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "es_ES": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "pt_BR": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "fr_FR": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped.",
+              "ru_RU": "Pick Facebook / Instagram / Threads / TikTok / X browsers. Different browsers post in parallel; same browser posts sequentially. Extra browsers beyond media count (per platform) are skipped."
+            },
+            "single": false,
+            "defaultValue": []
+          }
+        ]
+      }
+    ],
+    "workflowResultConfig": [
+      {
+        "title": {
+          "en_US": "Workflow result",
+          "zh_CN": "工作流结果",
+          "zh_TW": "工作流结果",
+          "ja_JP": "Workflow result",
+          "ko_KR": "Workflow result",
+          "th_TH": "Workflow result",
+          "id_ID": "Workflow result",
+          "ms_MY": "Workflow result",
+          "vi_VN": "Workflow result",
+          "de_DE": "Workflow result",
+          "es_ES": "Workflow result",
+          "pt_BR": "Workflow result",
+          "fr_FR": "Workflow result",
+          "ru_RU": "Workflow result"
+        },
+        "fields": [
+          {
+            "key": "posted_ok",
+            "type": "stat",
+            "label": {
+              "en_US": "Posted OK",
+              "zh_CN": "成功帖数",
+              "zh_TW": "成功帖数",
+              "ja_JP": "Posted OK",
+              "ko_KR": "Posted OK",
+              "th_TH": "Posted OK",
+              "id_ID": "Posted OK",
+              "ms_MY": "Posted OK",
+              "vi_VN": "Posted OK",
+              "de_DE": "Posted OK",
+              "es_ES": "Posted OK",
+              "pt_BR": "Posted OK",
+              "fr_FR": "Posted OK",
+              "ru_RU": "Posted OK"
+            }
+          },
+          {
+            "key": "posted_fail",
+            "type": "stat",
+            "label": {
+              "en_US": "Posted failed",
+              "zh_CN": "失败帖数",
+              "zh_TW": "失败帖数",
+              "ja_JP": "Posted failed",
+              "ko_KR": "Posted failed",
+              "th_TH": "Posted failed",
+              "id_ID": "Posted failed",
+              "ms_MY": "Posted failed",
+              "vi_VN": "Posted failed",
+              "de_DE": "Posted failed",
+              "es_ES": "Posted failed",
+              "pt_BR": "Posted failed",
+              "fr_FR": "Posted failed",
+              "ru_RU": "Posted failed"
+            }
+          },
+          {
+            "key": "skipped",
+            "type": "stat",
+            "label": {
+              "en_US": "Skipped",
+              "zh_CN": "跳过数",
+              "zh_TW": "跳过数",
+              "ja_JP": "Skipped",
+              "ko_KR": "Skipped",
+              "th_TH": "Skipped",
+              "id_ID": "Skipped",
+              "ms_MY": "Skipped",
+              "vi_VN": "Skipped",
+              "de_DE": "Skipped",
+              "es_ES": "Skipped",
+              "pt_BR": "Skipped",
+              "fr_FR": "Skipped",
+              "ru_RU": "Skipped"
+            }
+          },
+          {
+            "key": "summary",
+            "type": "text",
+            "label": {
+              "en_US": "Summary",
+              "zh_CN": "摘要",
+              "zh_TW": "摘要",
+              "ja_JP": "Summary",
+              "ko_KR": "Summary",
+              "th_TH": "Summary",
+              "id_ID": "Summary",
+              "ms_MY": "Summary",
+              "vi_VN": "Summary",
+              "de_DE": "Summary",
+              "es_ES": "Summary",
+              "pt_BR": "Summary",
+              "fr_FR": "Summary",
+              "ru_RU": "Summary"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    },
+    "flowChart": {
+      "title": {
+        "en_US": "Multi-platform post flow",
+        "zh_CN": "多平台发帖流程",
+        "zh_TW": "多平台发帖流程",
+        "ja_JP": "Multi-platform post flow",
+        "ko_KR": "Multi-platform post flow",
+        "th_TH": "Multi-platform post flow",
+        "id_ID": "Multi-platform post flow",
+        "ms_MY": "Multi-platform post flow",
+        "vi_VN": "Multi-platform post flow",
+        "de_DE": "Multi-platform post flow",
+        "es_ES": "Multi-platform post flow",
+        "pt_BR": "Multi-platform post flow",
+        "fr_FR": "Multi-platform post flow",
+        "ru_RU": "Multi-platform post flow"
+      },
+      "mermaid": "flowchart TD\n  start([填写文案与素材]) --> pick[勾选浏览器]\n  pick --> route{按平台分组}\n  route -->|无可发平台| empty([结束：请选支持的浏览器])\n  route -->|已分组| pair[按素材生成帖 · 文案循环]\n  pair --> parallel[各浏览器并行发帖]\n  parallel --> one{单帖是否成功}\n  one -->|失败| note[记录失败并继续]\n  one -->|成功| wait[等待全部结束]\n  note --> wait\n  wait --> done([汇总成功失败跳过])"
+    }
+  }
+}

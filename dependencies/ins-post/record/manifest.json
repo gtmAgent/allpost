@@ -1,0 +1,123 @@
+{
+  "version": 2,
+  "uuid": "bed8efdf-8ecd-44a7-a4a6-df1195007780",
+  "name": "Instagram发帖",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 2,
+  "deviceId": 0,
+  "createdAt": 1792029884,
+  "updatedAt": 1792663091,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "9501d249-8568-45e9-8f3c-e5b46a9580af",
+      "name": "Instagram发帖",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "52f2f64d-8878-46c2-bd78-793eb858716c",
+          "title": "点击+",
+          "description": "",
+          "capturedAt": 1792029901,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/",
+              "title": "Instagram",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "ded55921-4472-4b5d-ab17-d0cc7fea07a0",
+          "title": "点击从计算机选择图片/视频上传（适配常用语言，或者按中间点击）",
+          "description": "",
+          "capturedAt": 1792029956,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/",
+              "title": "Create new post • Instagram",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "cc38770a-efd7-4810-a20a-6f8ff3013950",
+          "title": "点击扩大按钮",
+          "description": "",
+          "capturedAt": 1792030033,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/",
+              "title": "Create new post • Instagram",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "7318ac9e-39a2-4316-9cc8-742dfd6435d9",
+          "title": "点击original，下一步next",
+          "description": "",
+          "capturedAt": 1792030119,
+          "screenshot": "routes/001/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/004/annotated.png",
+          "markup": "routes/001/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/",
+              "title": "Create new post • Instagram",
+              "pagePath": "routes/001/steps/004/page.html"
+            }
+          }
+        },
+        {
+          "index": 5,
+          "stepId": "eaf10546-77c9-4ce3-83e8-6e3462a4d685",
+          "title": "next",
+          "description": "",
+          "capturedAt": 1792031368,
+          "screenshot": "routes/001/steps/005/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/005/annotated.png",
+          "markup": "routes/001/steps/005/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/engenheiro527/",
+              "title": "Create new post • Instagram",
+              "pagePath": "routes/001/steps/005/page.html"
+            }
+          }
+        },
+        {
+          "index": 6,
+          "stepId": "7415d517-5489-418c-8c00-947a2f4dbd55",
+          "title": "填写文案，分享即可",
+          "description": "",
+          "capturedAt": 1792031428,
+          "screenshot": "routes/001/steps/006/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/006/annotated.png",
+          "markup": "routes/001/steps/006/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/engenheiro527/",
+              "title": "Create new post • Instagram",
+              "pagePath": "routes/001/steps/006/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

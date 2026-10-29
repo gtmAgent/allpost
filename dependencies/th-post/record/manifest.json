@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "uuid": "9a8d3063-aca9-486e-8704-a3e3eb4eaabb",
+  "name": "threads发帖",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 8,
+  "deviceId": 0,
+  "createdAt": 1791972580,
+  "updatedAt": 1793084661,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "bfc035fc-423c-4230-9dfe-16e207a213cf",
+      "name": "threads发帖",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "6933d3a1-43e1-4b33-b72d-c290759a9304",
+          "title": "点击这里（适配繁体、英文、中文等常用语言）",
+          "description": "",
+          "capturedAt": 1791972622,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.threads.com/",
+              "title": "(2) 首页 • Threads",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "8c5c2a01-5762-4d6f-ae89-03d8c6fb8307",
+          "title": "可选输入文案，图片二选一或者全选即可，点击发布，适配繁体、英文、中文等常用语言",
+          "description": "",
+          "capturedAt": 1791972710,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.threads.com/",
+              "title": "(2) 首页 • Threads",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

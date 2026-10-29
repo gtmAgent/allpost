@@ -1,0 +1,34 @@
+{
+  "format": "xport-github-project",
+  "formatVersion": 1,
+  "kind": "automation",
+  "exportedAt": 1793238964,
+  "project": {
+    "label": "ins-post",
+    "name": "Instagram发帖",
+    "target": "browser",
+    "version": "1.2.2"
+  },
+  "deviceTargets": [
+    "browser",
+    "android",
+    "ios"
+  ],
+  "socialCategory": {
+    "sourceId": 2,
+    "sourceUid": 0,
+    "name": "Instagram",
+    "icon": "social/f60e4f58-f05f-47a9-aabe-f3a44b6b4708.svg",
+    "websiteDomain": "https://www.instagram.com",
+    "androidPackage": "com.instagram.android",
+    "iosPackage": "com.burbn.instagram"
+  },
+  "record": {
+    "uuid": "bed8efdf-8ecd-44a7-a4a6-df1195007780",
+    "name": "Instagram发帖",
+    "description": "",
+    "deviceType": "browser",
+    "updateAt": 1792663091,
+    "contentMd5": "b726f91abd16be3cdf1556a07746eb74"
+  }
+}

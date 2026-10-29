@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "uuid": "0a1716d1-ed95-47d1-83b7-145e074d1c44",
+  "name": "Facebook个人发帖",
+  "description": "个人或者公共主页发帖",
+  "deviceType": "browser",
+  "socialCategoryId": 1,
+  "deviceId": 0,
+  "createdAt": 1783231813,
+  "updatedAt": 1792390496,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "b68b1c62-8879-43be-aa7c-bcc98c03a75e",
+      "name": "进入主页发帖",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "b73841b7-5725-4038-a1b4-2f5b5bdac491",
+          "title": "进入主页",
+          "description": "点击箭头指向的发帖区域",
+          "capturedAt": 1783662897,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(16) Facebook",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "87e9ae75-c68e-4855-9bd5-ac58d187f74e",
+          "title": "设置发帖内容",
+          "description": "设置文案，上传一张或者多张图片",
+          "capturedAt": 1783662951,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(16) Facebook",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "333d76f8-9fcd-4322-a671-c714e373e9cb",
+          "title": "点击发帖按钮",
+          "description": "有可能会有多次确认，如果有直接点击直到发布成功",
+          "capturedAt": 1783663014,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(16) Facebook",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

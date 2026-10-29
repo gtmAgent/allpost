@@ -1,0 +1,107 @@
+{
+  "version": 2,
+  "uuid": "1d33dc56-36b4-47bd-8a21-7f02ce14a8f5",
+  "name": "TikTok个人发帖",
+  "description": "个人账号在 TikTok Studio 上传视频或图片并发布",
+  "deviceType": "browser",
+  "socialCategoryId": 3,
+  "deviceId": 0,
+  "createdAt": 1792121603,
+  "updatedAt": 1792642523,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "93e917d3-7f35-43d5-89d3-8e814e4e89ad",
+      "name": "个人主页发帖",
+      "description": "TikTok Studio 上传页发帖到当前登录账号",
+      "entryUrl": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "1eb4ac04-8f35-47c1-a49a-4f014fe88f34",
+          "title": "打开上传页并选择视频或图片",
+          "description": "打开 Studio 上传页，按媒体类型切换 Videos/Photos，注入文件上传（不点系统选文件框）",
+          "capturedAt": 1792121830,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+              "title": "TikTok Studio",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "fcfd11b5-ce6b-41cd-b378-9d8b179ac6c6",
+          "title": "开启自动内容检查（如有弹窗）",
+          "description": "若出现 Turn on automatic content checks 弹窗，点击 Turn on",
+          "capturedAt": 1792121961,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+              "title": "TikTok Studio",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "4603b29f-505f-4438-be0c-969458f79c7e",
+          "title": "关闭新功能引导（如有弹窗）",
+          "description": "若出现 New editing features 引导，点击 Got it",
+          "capturedAt": 1792121987,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+              "title": "TikTok Studio",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "94bb4983-351d-4698-b0b4-b9ed78577f46",
+          "title": "输入描述文案",
+          "description": "在 Description 输入框填写帖子文案",
+          "capturedAt": 1792122017,
+          "screenshot": "routes/001/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/004/annotated.png",
+          "markup": "routes/001/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+              "title": "TikTok Studio",
+              "pagePath": "routes/001/steps/004/page.html"
+            }
+          }
+        },
+        {
+          "index": 5,
+          "stepId": "f4564803-cf5c-4afb-a7c0-8a201a83078b",
+          "title": "点击 Post 发布",
+          "description": "上传与检查完成后点击 Post；若提示版权检查未完成则点 Post now；可重试直到跳转内容页或出现 Video published",
+          "capturedAt": 1792122088,
+          "screenshot": "routes/001/steps/005/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/005/annotated.png",
+          "markup": "routes/001/steps/005/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.tiktok.com/tiktokstudio/upload?from=webapp&tab=video",
+              "title": "TikTok Studio",
+              "pagePath": "routes/001/steps/005/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

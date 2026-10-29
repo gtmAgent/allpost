@@ -1,0 +1,589 @@
+{
+  "name": "ins-post",
+  "version": "1.2.2",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Instagram Post",
+    "de_DE": "Instagram-Beitrag",
+    "es_ES": "Publicación de Instagram",
+    "fr_FR": "Publication Instagram",
+    "id_ID": "Postingan Instagram",
+    "ja_JP": "Instagram投稿",
+    "ko_KR": "Instagram 게시",
+    "ms_MY": "Siaran Instagram",
+    "pt_BR": "Publicação no Instagram",
+    "ru_RU": "Публикация Instagram",
+    "th_TH": "โพสต์ Instagram",
+    "vi_VN": "Đăng Instagram",
+    "zh_CN": "Instagram发帖",
+    "zh_TW": "Instagram發帖"
+  },
+  "description": {
+    "en_US": "Post a photo or video to the logged-in Instagram account with optional caption",
+    "de_DE": "Foto oder Video mit optionalem Text auf dem angemeldeten Instagram-Konto posten",
+    "es_ES": "Publicar foto o vídeo en la cuenta de Instagram iniciada, con pie opcional",
+    "fr_FR": "Publier une photo ou une vidéo sur le compte Instagram connecté, légende optionnelle",
+    "id_ID": "Posting foto/video ke akun Instagram yang login, caption opsional",
+    "ja_JP": "ログイン中のInstagramアカウントに画像/動画を投稿（キャプション任意）",
+    "ko_KR": "로그인한 Instagram 계정에 사진/동영상 게시(캡션 선택)",
+    "ms_MY": "Siar foto/video ke akaun Instagram yang dilog masuk, kapsyen pilihan",
+    "pt_BR": "Publicar foto ou vídeo na conta Instagram logada, com legenda opcional",
+    "ru_RU": "Публикация фото/видео в вошедшем аккаунте Instagram с необязательной подписью",
+    "th_TH": "โพสต์รูปหรือวิดีโอไปยังบัญชี Instagram ที่ล็อกอิน พร้อมคำบรรยายได้",
+    "vi_VN": "Đăng ảnh/video lên tài khoản Instagram đã đăng nhập, chú thích tùy chọn",
+    "zh_CN": "在已登录的 Instagram 账号发布图片或视频，可填写文案",
+    "zh_TW": "在已登入的 Instagram 帳號發布圖片或影片，可填寫文案"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Media & captions",
+          "de_DE": "Media & captions",
+          "es_ES": "Media & captions",
+          "fr_FR": "Media & captions",
+          "id_ID": "Media & captions",
+          "ja_JP": "Media & captions",
+          "ko_KR": "Media & captions",
+          "ms_MY": "Media & captions",
+          "pt_BR": "Media & captions",
+          "ru_RU": "Media & captions",
+          "th_TH": "Media & captions",
+          "vi_VN": "Media & captions",
+          "zh_CN": "媒体与文案",
+          "zh_TW": "媒體與文案"
+        },
+        "fields": [
+          {
+            "key": "medias",
+            "type": "resource",
+            "allowMultiple": true,
+            "extensions": [
+              ".jpg",
+              ".jpeg",
+              ".png",
+              ".webp",
+              ".heic",
+              ".mp4",
+              ".mov"
+            ],
+            "label": {
+              "en_US": "Photos / videos",
+              "de_DE": "Photos / videos",
+              "es_ES": "Photos / videos",
+              "fr_FR": "Photos / videos",
+              "id_ID": "Photos / videos",
+              "ja_JP": "Photos / videos",
+              "ko_KR": "Photos / videos",
+              "ms_MY": "Photos / videos",
+              "pt_BR": "Photos / videos",
+              "ru_RU": "Photos / videos",
+              "th_TH": "Photos / videos",
+              "vi_VN": "Photos / videos",
+              "zh_CN": "图片 / 视频",
+              "zh_TW": "圖片 / 影片"
+            },
+            "hint": {
+              "en_US": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "de_DE": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "es_ES": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "fr_FR": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "id_ID": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "ja_JP": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "ko_KR": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "ms_MY": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "pt_BR": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "ru_RU": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "th_TH": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "vi_VN": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
+              "zh_CN": "可多选。1 个媒体 → 所有浏览器发同一条；多个 → 按顺序一对一分配（1 浏览器 : 1 媒体），多余丢弃",
+              "zh_TW": "可多选。1 個媒体 → 所有浏览器發同一條；多个 → 按顺序一对一分配（1 浏览器 : 1 媒体），多余丟棄"
+            },
+            "defaultValue": []
+          },
+          {
+            "key": "captions",
+            "type": "text",
+            "multiline": true,
+            "maxLines": 5,
+            "label": {
+              "en_US": "Captions",
+              "de_DE": "Captions",
+              "es_ES": "Captions",
+              "fr_FR": "Captions",
+              "id_ID": "Captions",
+              "ja_JP": "Captions",
+              "ko_KR": "Captions",
+              "ms_MY": "Captions",
+              "pt_BR": "Captions",
+              "ru_RU": "Captions",
+              "th_TH": "Captions",
+              "vi_VN": "Captions",
+              "zh_CN": "文案",
+              "zh_TW": "文案"
+            },
+            "hint": {
+              "en_US": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "de_DE": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "es_ES": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "fr_FR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "id_ID": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "ja_JP": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "ko_KR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "ms_MY": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "pt_BR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "ru_RU": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "th_TH": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "vi_VN": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "zh_CN": "每行一条文案，与媒体按顺序配对。仅一行（或空）则全部用同一文案",
+              "zh_TW": "每行一條文案，與媒體按順序配對。僅一行（或空）則全部用同一文案"
+            },
+            "defaultValue": ""
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "single": false,
+            "platform": "instagram",
+            "label": {
+              "en_US": "Browsers",
+              "de_DE": "Browsers",
+              "es_ES": "Browsers",
+              "fr_FR": "Browsers",
+              "id_ID": "Browsers",
+              "ja_JP": "Browsers",
+              "ko_KR": "Browsers",
+              "ms_MY": "Browsers",
+              "pt_BR": "Browsers",
+              "ru_RU": "Browsers",
+              "th_TH": "Browsers",
+              "vi_VN": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器"
+            },
+            "hint": {
+              "en_US": "Select Instagram browsers to post from (each device = one account)",
+              "de_DE": "Select Instagram browsers to post from (each device = one account)",
+              "es_ES": "Select Instagram browsers to post from (each device = one account)",
+              "fr_FR": "Select Instagram browsers to post from (each device = one account)",
+              "id_ID": "Select Instagram browsers to post from (each device = one account)",
+              "ja_JP": "Select Instagram browsers to post from (each device = one account)",
+              "ko_KR": "Select Instagram browsers to post from (each device = one account)",
+              "ms_MY": "Select Instagram browsers to post from (each device = one account)",
+              "pt_BR": "Select Instagram browsers to post from (each device = one account)",
+              "ru_RU": "Select Instagram browsers to post from (each device = one account)",
+              "th_TH": "Select Instagram browsers to post from (each device = one account)",
+              "vi_VN": "Select Instagram browsers to post from (each device = one account)",
+              "zh_CN": "选择用于发帖?Instagram 浏览器（每台设备对应一个账号）",
+              "zh_TW": "選擇用於發帖?Instagram 瀏覽器（每台裝置對應一個帳號）"
+            },
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "de_DE": "Schedule",
+          "es_ES": "Schedule",
+          "fr_FR": "Schedule",
+          "id_ID": "Schedule",
+          "ja_JP": "Schedule",
+          "ko_KR": "Schedule",
+          "ms_MY": "Schedule",
+          "pt_BR": "Schedule",
+          "ru_RU": "Schedule",
+          "th_TH": "Schedule",
+          "vi_VN": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "inputType": "number",
+            "label": {
+              "en_US": "Daily limit",
+              "de_DE": "Daily limit",
+              "es_ES": "Daily limit",
+              "fr_FR": "Daily limit",
+              "id_ID": "Daily limit",
+              "ja_JP": "Daily limit",
+              "ko_KR": "Daily limit",
+              "ms_MY": "Daily limit",
+              "pt_BR": "Daily limit",
+              "ru_RU": "Daily limit",
+              "th_TH": "Daily limit",
+              "vi_VN": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "de_DE": "Max tasks assigned to each device per day",
+              "es_ES": "Max tasks assigned to each device per day",
+              "fr_FR": "Max tasks assigned to each device per day",
+              "id_ID": "Max tasks assigned to each device per day",
+              "ja_JP": "Max tasks assigned to each device per day",
+              "ko_KR": "Max tasks assigned to each device per day",
+              "ms_MY": "Max tasks assigned to each device per day",
+              "pt_BR": "Max tasks assigned to each device per day",
+              "ru_RU": "Max tasks assigned to each device per day",
+              "th_TH": "Max tasks assigned to each device per day",
+              "vi_VN": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "Max tasks assigned to each device per day"
+            },
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "de_DE": "Min interval (s)",
+              "es_ES": "Min interval (s)",
+              "fr_FR": "Min interval (s)",
+              "id_ID": "Min interval (s)",
+              "ja_JP": "Min interval (s)",
+              "ko_KR": "Min interval (s)",
+              "ms_MY": "Min interval (s)",
+              "pt_BR": "Min interval (s)",
+              "ru_RU": "Min interval (s)",
+              "th_TH": "Min interval (s)",
+              "vi_VN": "Min interval (s)",
+              "zh_CN": "Min interval (s)",
+              "zh_TW": "Min interval (s)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "de_DE": "Min interval between runs on the same device (seconds)",
+              "es_ES": "Min interval between runs on the same device (seconds)",
+              "fr_FR": "Min interval between runs on the same device (seconds)",
+              "id_ID": "Min interval between runs on the same device (seconds)",
+              "ja_JP": "Min interval between runs on the same device (seconds)",
+              "ko_KR": "Min interval between runs on the same device (seconds)",
+              "ms_MY": "Min interval between runs on the same device (seconds)",
+              "pt_BR": "Min interval between runs on the same device (seconds)",
+              "ru_RU": "Min interval between runs on the same device (seconds)",
+              "th_TH": "Min interval between runs on the same device (seconds)",
+              "vi_VN": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "de_DE": "Max interval (s)",
+              "es_ES": "Max interval (s)",
+              "fr_FR": "Max interval (s)",
+              "id_ID": "Max interval (s)",
+              "ja_JP": "Max interval (s)",
+              "ko_KR": "Max interval (s)",
+              "ms_MY": "Max interval (s)",
+              "pt_BR": "Max interval (s)",
+              "ru_RU": "Max interval (s)",
+              "th_TH": "Max interval (s)",
+              "vi_VN": "Max interval (s)",
+              "zh_CN": "Max interval (s)",
+              "zh_TW": "Max interval (s)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "de_DE": "Max interval between runs on the same device (seconds)",
+              "es_ES": "Max interval between runs on the same device (seconds)",
+              "fr_FR": "Max interval between runs on the same device (seconds)",
+              "id_ID": "Max interval between runs on the same device (seconds)",
+              "ja_JP": "Max interval between runs on the same device (seconds)",
+              "ko_KR": "Max interval between runs on the same device (seconds)",
+              "ms_MY": "Max interval between runs on the same device (seconds)",
+              "pt_BR": "Max interval between runs on the same device (seconds)",
+              "ru_RU": "Max interval between runs on the same device (seconds)",
+              "th_TH": "Max interval between runs on the same device (seconds)",
+              "vi_VN": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "de_DE": "Daily start time",
+              "es_ES": "Daily start time",
+              "fr_FR": "Daily start time",
+              "id_ID": "Daily start time",
+              "ja_JP": "Daily start time",
+              "ko_KR": "Daily start time",
+              "ms_MY": "Daily start time",
+              "pt_BR": "Daily start time",
+              "ru_RU": "Daily start time",
+              "th_TH": "Daily start time",
+              "vi_VN": "Daily start time",
+              "zh_CN": "Daily start time",
+              "zh_TW": "每日執行開始時刻"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "de_DE": "Daily end time",
+              "es_ES": "Daily end time",
+              "fr_FR": "Daily end time",
+              "id_ID": "Daily end time",
+              "ja_JP": "Daily end time",
+              "ko_KR": "Daily end time",
+              "ms_MY": "Daily end time",
+              "pt_BR": "Daily end time",
+              "ru_RU": "Daily end time",
+              "th_TH": "Daily end time",
+              "vi_VN": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Post content",
+          "de_DE": "Post content",
+          "es_ES": "Post content",
+          "fr_FR": "Post content",
+          "id_ID": "Post content",
+          "ja_JP": "Post content",
+          "ko_KR": "Post content",
+          "ms_MY": "Post content",
+          "pt_BR": "Post content",
+          "ru_RU": "Post content",
+          "th_TH": "Post content",
+          "vi_VN": "Post content",
+          "zh_CN": "帖子内容",
+          "zh_TW": "帖子內容"
+        },
+        "fields": [
+          {
+            "key": "media",
+            "type": "resource",
+            "allowMultiple": false,
+            "extensions": [
+              ".jpg",
+              ".jpeg",
+              ".png",
+              ".webp",
+              ".heic",
+              ".mp4",
+              ".mov"
+            ],
+            "label": {
+              "en_US": "Photo / video",
+              "de_DE": "Photo / video",
+              "es_ES": "Photo / video",
+              "fr_FR": "Photo / video",
+              "id_ID": "Photo / video",
+              "ja_JP": "Photo / video",
+              "ko_KR": "Photo / video",
+              "ms_MY": "Photo / video",
+              "pt_BR": "Photo / video",
+              "ru_RU": "Photo / video",
+              "th_TH": "Photo / video",
+              "vi_VN": "Photo / video",
+              "zh_CN": "图片 / 视频",
+              "zh_TW": "圖片 / 影片"
+            },
+            "hint": {
+              "en_US": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "de_DE": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "es_ES": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "fr_FR": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "id_ID": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "ja_JP": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "ko_KR": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "ms_MY": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "pt_BR": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "ru_RU": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "th_TH": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "vi_VN": "One image or video (?KB). Posted to the logged-in account on this browser",
+              "zh_CN": "一张图片或一个视频（?KB），发布到本浏览器已登录账号",
+              "zh_TW": "一張圖片或一個影片（?KB），發布到本瀏覽器已登入帳號"
+            },
+            "defaultValue": null
+          },
+          {
+            "key": "caption",
+            "type": "text",
+            "multiline": true,
+            "maxLines": 5,
+            "label": {
+              "en_US": "Caption",
+              "de_DE": "Caption",
+              "es_ES": "Caption",
+              "fr_FR": "Caption",
+              "id_ID": "Caption",
+              "ja_JP": "Caption",
+              "ko_KR": "Caption",
+              "ms_MY": "Caption",
+              "pt_BR": "Caption",
+              "ru_RU": "Caption",
+              "th_TH": "Caption",
+              "vi_VN": "Caption",
+              "zh_CN": "文案",
+              "zh_TW": "文案"
+            },
+            "hint": {
+              "en_US": "Optional post caption",
+              "de_DE": "Optional post caption",
+              "es_ES": "Optional post caption",
+              "fr_FR": "Optional post caption",
+              "id_ID": "Optional post caption",
+              "ja_JP": "Optional post caption",
+              "ko_KR": "Optional post caption",
+              "ms_MY": "Optional post caption",
+              "pt_BR": "Optional post caption",
+              "ru_RU": "Optional post caption",
+              "th_TH": "Optional post caption",
+              "vi_VN": "Optional post caption",
+              "zh_CN": "Optional post caption",
+              "zh_TW": "可選帖子文案"
+            },
+            "defaultValue": ""
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "de_DE": "Run result",
+          "es_ES": "Run result",
+          "fr_FR": "Run result",
+          "id_ID": "Run result",
+          "ja_JP": "Run result",
+          "ko_KR": "Run result",
+          "ms_MY": "Run result",
+          "pt_BR": "Run result",
+          "ru_RU": "Run result",
+          "th_TH": "Run result",
+          "vi_VN": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果"
+        },
+        "fields": [
+          {
+            "key": "caption",
+            "type": "text",
+            "label": {
+              "en_US": "Caption",
+              "de_DE": "Caption",
+              "es_ES": "Caption",
+              "fr_FR": "Caption",
+              "id_ID": "Caption",
+              "ja_JP": "Caption",
+              "ko_KR": "Caption",
+              "ms_MY": "Caption",
+              "pt_BR": "Caption",
+              "ru_RU": "Caption",
+              "th_TH": "Caption",
+              "vi_VN": "Caption",
+              "zh_CN": "文案",
+              "zh_TW": "文案"
+            }
+          },
+          {
+            "key": "mediaMd5",
+            "type": "text",
+            "label": {
+              "en_US": "Media MD5",
+              "de_DE": "Media MD5",
+              "es_ES": "Media MD5",
+              "fr_FR": "Media MD5",
+              "id_ID": "Media MD5",
+              "ja_JP": "Media MD5",
+              "ko_KR": "Media MD5",
+              "ms_MY": "Media MD5",
+              "pt_BR": "Media MD5",
+              "ru_RU": "Media MD5",
+              "th_TH": "Media MD5",
+              "vi_VN": "Media MD5",
+              "zh_CN": "媒体 MD5",
+              "zh_TW": "媒體 MD5"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "de_DE": "Final URL",
+              "es_ES": "Final URL",
+              "fr_FR": "Final URL",
+              "id_ID": "Final URL",
+              "ja_JP": "Final URL",
+              "ko_KR": "Final URL",
+              "ms_MY": "Final URL",
+              "pt_BR": "Final URL",
+              "ru_RU": "Final URL",
+              "th_TH": "Final URL",
+              "vi_VN": "Final URL",
+              "zh_CN": "最?URL",
+              "zh_TW": "最?URL"
+            }
+          },
+          {
+            "key": "shared",
+            "type": "stat",
+            "label": {
+              "en_US": "Shared",
+              "de_DE": "Shared",
+              "es_ES": "Shared",
+              "fr_FR": "Shared",
+              "id_ID": "Shared",
+              "ja_JP": "Shared",
+              "ko_KR": "Shared",
+              "ms_MY": "Shared",
+              "pt_BR": "Shared",
+              "ru_RU": "Shared",
+              "th_TH": "Shared",
+              "vi_VN": "Shared",
+              "zh_CN": "Shared",
+              "zh_TW": "Shared"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}
