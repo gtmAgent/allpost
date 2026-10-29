@@ -1,6 +1,6 @@
 {
   "name": "ins-post",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": true,
   "type": "module",
   "displayName": {
@@ -108,7 +108,7 @@
               "th_TH": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
               "vi_VN": "Multi-select. 1 item → all browsers post the same; multiple → assign in order (1 browser : 1 media), extras discarded",
               "zh_CN": "可多选。1 个媒体 → 所有浏览器发同一条；多个 → 按顺序一对一分配（1 浏览器 : 1 媒体），多余丢弃",
-              "zh_TW": "可多选。1 個媒体 → 所有浏览器發同一條；多个 → 按顺序一对一分配（1 浏览器 : 1 媒体），多余丟棄"
+              "zh_TW": "可多選。1 個媒體 → 所有瀏覽器發同一條；多個 → 按順序一對一分配（1 瀏覽器 : 1 媒體），多餘丟棄"
             },
             "defaultValue": []
           },
@@ -134,18 +134,18 @@
               "zh_TW": "文案"
             },
             "hint": {
-              "en_US": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "de_DE": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "es_ES": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "fr_FR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "id_ID": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "ja_JP": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "ko_KR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "ms_MY": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "pt_BR": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "ru_RU": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "th_TH": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
-              "vi_VN": "One caption per line, paired with media in order. One line (or empty) ?same caption for all",
+              "en_US": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "de_DE": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "es_ES": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "fr_FR": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "id_ID": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "ja_JP": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "ko_KR": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "ms_MY": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "pt_BR": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "ru_RU": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "th_TH": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
+              "vi_VN": "One caption per line, paired with media in order. One line (or empty) → same caption for all",
               "zh_CN": "每行一条文案，与媒体按顺序配对。仅一行（或空）则全部用同一文案",
               "zh_TW": "每行一條文案，與媒體按順序配對。僅一行（或空）則全部用同一文案"
             },
@@ -185,8 +185,8 @@
               "ru_RU": "Select Instagram browsers to post from (each device = one account)",
               "th_TH": "Select Instagram browsers to post from (each device = one account)",
               "vi_VN": "Select Instagram browsers to post from (each device = one account)",
-              "zh_CN": "选择用于发帖?Instagram 浏览器（每台设备对应一个账号）",
-              "zh_TW": "選擇用於發帖?Instagram 瀏覽器（每台裝置對應一個帳號）"
+              "zh_CN": "选择用于发帖的 Instagram 浏览器（每台设备对应一个账号）",
+              "zh_TW": "選擇用於發帖的 Instagram 瀏覽器（每台裝置對應一個帳號）"
             },
             "defaultValue": []
           }
@@ -206,66 +206,65 @@
           "ru_RU": "Schedule",
           "th_TH": "Schedule",
           "vi_VN": "Schedule",
-          "zh_CN": "频率规划控制",
-          "zh_TW": "頻率規劃控制"
+          "zh_CN": "执行计划",
+          "zh_TW": "執行計畫"
         },
         "fields": [
           {
             "key": "daily_limit",
             "type": "text",
-            "inputType": "number",
             "label": {
-              "en_US": "Daily limit",
-              "de_DE": "Daily limit",
-              "es_ES": "Daily limit",
-              "fr_FR": "Daily limit",
-              "id_ID": "Daily limit",
-              "ja_JP": "Daily limit",
-              "ko_KR": "Daily limit",
-              "ms_MY": "Daily limit",
-              "pt_BR": "Daily limit",
-              "ru_RU": "Daily limit",
-              "th_TH": "Daily limit",
-              "vi_VN": "Daily limit",
-              "zh_CN": "每日上限",
-              "zh_TW": "每日上限"
+              "en_US": "Daily limit per device",
+              "de_DE": "Daily limit per device",
+              "es_ES": "Daily limit per device",
+              "fr_FR": "Daily limit per device",
+              "id_ID": "Daily limit per device",
+              "ja_JP": "Daily limit per device",
+              "ko_KR": "Daily limit per device",
+              "ms_MY": "Daily limit per device",
+              "pt_BR": "Daily limit per device",
+              "ru_RU": "Daily limit per device",
+              "th_TH": "Daily limit per device",
+              "vi_VN": "Daily limit per device",
+              "zh_CN": "每设备每日上限",
+              "zh_TW": "每裝置每日上限"
             },
             "hint": {
-              "en_US": "Max tasks assigned to each device per day",
-              "de_DE": "Max tasks assigned to each device per day",
-              "es_ES": "Max tasks assigned to each device per day",
-              "fr_FR": "Max tasks assigned to each device per day",
-              "id_ID": "Max tasks assigned to each device per day",
-              "ja_JP": "Max tasks assigned to each device per day",
-              "ko_KR": "Max tasks assigned to each device per day",
-              "ms_MY": "Max tasks assigned to each device per day",
-              "pt_BR": "Max tasks assigned to each device per day",
-              "ru_RU": "Max tasks assigned to each device per day",
-              "th_TH": "Max tasks assigned to each device per day",
-              "vi_VN": "Max tasks assigned to each device per day",
-              "zh_CN": "每个设备每天最多分配多少个任务",
-              "zh_TW": "Max tasks assigned to each device per day"
+              "en_US": "Max runs per device per day",
+              "de_DE": "Max runs per device per day",
+              "es_ES": "Max runs per device per day",
+              "fr_FR": "Max runs per device per day",
+              "id_ID": "Max runs per device per day",
+              "ja_JP": "Max runs per device per day",
+              "ko_KR": "Max runs per device per day",
+              "ms_MY": "Max runs per device per day",
+              "pt_BR": "Max runs per device per day",
+              "ru_RU": "Max runs per device per day",
+              "th_TH": "Max runs per device per day",
+              "vi_VN": "Max runs per device per day",
+              "zh_CN": "单台设备每日最多执行次数",
+              "zh_TW": "單台裝置每日最多執行次數"
             },
-            "defaultValue": 10
+            "defaultValue": "10"
           },
           {
             "key": "during_min",
             "type": "text",
             "label": {
-              "en_US": "Min interval (s)",
-              "de_DE": "Min interval (s)",
-              "es_ES": "Min interval (s)",
-              "fr_FR": "Min interval (s)",
-              "id_ID": "Min interval (s)",
-              "ja_JP": "Min interval (s)",
-              "ko_KR": "Min interval (s)",
-              "ms_MY": "Min interval (s)",
-              "pt_BR": "Min interval (s)",
-              "ru_RU": "Min interval (s)",
-              "th_TH": "Min interval (s)",
-              "vi_VN": "Min interval (s)",
-              "zh_CN": "Min interval (s)",
-              "zh_TW": "Min interval (s)"
+              "en_US": "Min interval (sec)",
+              "de_DE": "Min interval (sec)",
+              "es_ES": "Min interval (sec)",
+              "fr_FR": "Min interval (sec)",
+              "id_ID": "Min interval (sec)",
+              "ja_JP": "Min interval (sec)",
+              "ko_KR": "Min interval (sec)",
+              "ms_MY": "Min interval (sec)",
+              "pt_BR": "Min interval (sec)",
+              "ru_RU": "Min interval (sec)",
+              "th_TH": "Min interval (sec)",
+              "vi_VN": "Min interval (sec)",
+              "zh_CN": "最小间隔（秒）",
+              "zh_TW": "最小間隔（秒）"
             },
             "hint": {
               "en_US": "Min interval between runs on the same device (seconds)",
@@ -283,26 +282,26 @@
               "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
               "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）"
             },
-            "defaultValue": "60"
+            "defaultValue": "300"
           },
           {
             "key": "during_max",
             "type": "text",
             "label": {
-              "en_US": "Max interval (s)",
-              "de_DE": "Max interval (s)",
-              "es_ES": "Max interval (s)",
-              "fr_FR": "Max interval (s)",
-              "id_ID": "Max interval (s)",
-              "ja_JP": "Max interval (s)",
-              "ko_KR": "Max interval (s)",
-              "ms_MY": "Max interval (s)",
-              "pt_BR": "Max interval (s)",
-              "ru_RU": "Max interval (s)",
-              "th_TH": "Max interval (s)",
-              "vi_VN": "Max interval (s)",
-              "zh_CN": "Max interval (s)",
-              "zh_TW": "Max interval (s)"
+              "en_US": "Max interval (sec)",
+              "de_DE": "Max interval (sec)",
+              "es_ES": "Max interval (sec)",
+              "fr_FR": "Max interval (sec)",
+              "id_ID": "Max interval (sec)",
+              "ja_JP": "Max interval (sec)",
+              "ko_KR": "Max interval (sec)",
+              "ms_MY": "Max interval (sec)",
+              "pt_BR": "Max interval (sec)",
+              "ru_RU": "Max interval (sec)",
+              "th_TH": "Max interval (sec)",
+              "vi_VN": "Max interval (sec)",
+              "zh_CN": "最大间隔（秒）",
+              "zh_TW": "最大間隔（秒）"
             },
             "hint": {
               "en_US": "Max interval between runs on the same device (seconds)",
@@ -338,7 +337,7 @@
               "ru_RU": "Daily start time",
               "th_TH": "Daily start time",
               "vi_VN": "Daily start time",
-              "zh_CN": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
               "zh_TW": "每日執行開始時刻"
             },
             "defaultValue": "09:00"
@@ -416,20 +415,20 @@
               "zh_TW": "圖片 / 影片"
             },
             "hint": {
-              "en_US": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "de_DE": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "es_ES": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "fr_FR": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "id_ID": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "ja_JP": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "ko_KR": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "ms_MY": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "pt_BR": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "ru_RU": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "th_TH": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "vi_VN": "One image or video (?KB). Posted to the logged-in account on this browser",
-              "zh_CN": "一张图片或一个视频（?KB），发布到本浏览器已登录账号",
-              "zh_TW": "一張圖片或一個影片（?KB），發布到本瀏覽器已登入帳號"
+              "en_US": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "de_DE": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "es_ES": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "fr_FR": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "id_ID": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "ja_JP": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "ko_KR": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "ms_MY": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "pt_BR": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "ru_RU": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "th_TH": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "vi_VN": "One image or video (≥1KB). Posted to the logged-in account on this browser",
+              "zh_CN": "一张图片或一个视频（≥1KB），发布到本浏览器已登录账号",
+              "zh_TW": "一張圖片或一個影片（≥1KB），發布到本瀏覽器已登入帳號"
             },
             "defaultValue": null
           },
@@ -467,7 +466,7 @@
               "ru_RU": "Optional post caption",
               "th_TH": "Optional post caption",
               "vi_VN": "Optional post caption",
-              "zh_CN": "Optional post caption",
+              "zh_CN": "可选帖子文案",
               "zh_TW": "可選帖子文案"
             },
             "defaultValue": ""
@@ -550,8 +549,8 @@
               "ru_RU": "Final URL",
               "th_TH": "Final URL",
               "vi_VN": "Final URL",
-              "zh_CN": "最?URL",
-              "zh_TW": "最?URL"
+              "zh_CN": "最终 URL",
+              "zh_TW": "最終 URL"
             }
           },
           {
@@ -570,8 +569,8 @@
               "ru_RU": "Shared",
               "th_TH": "Shared",
               "vi_VN": "Shared",
-              "zh_CN": "Shared",
-              "zh_TW": "Shared"
+              "zh_CN": "已分享",
+              "zh_TW": "已分享"
             }
           }
         ]

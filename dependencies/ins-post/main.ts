@@ -109,9 +109,104 @@ async function clickHeaderAction(client: XportBrowserClient): Promise<boolean> {
   return clickPath(client, btn);
 }
 
-/** 滤镜/Edit 步信号：录制已观察 Filter: Normal（语言无关 alt）。 */
+/** 滤镜/Edit 步信号：录制已观察 Filter: Normal（语言无关 alt；勿 .one() 防 count 变 0）。 */
 function editFilterMarkerPath(): NodePath {
-  return nodePath().css('div[role="dialog"]').then().css(FILTER_NORMAL_IMG).one();
+  return nodePath().css('div[role="dialog"]').then().css(FILTER_NORMAL_IMG);
+}
+
+/** 比例菜单已打开信号：选项「1:1」（语言无关数字）。 */
+function cropRatioMenuMarkerPath(): NodePath {
+  return nodePath()
+    .css('div[role="dialog"]')
+    .then()
+    .css('[role="button"]')
+    .containAnyText('1:1');
+}
+
+function selectCropPath(): NodePath {
+  return nodePath().css('div[role="dialog"]').then().css(SELECT_CROP_PATH).one();
+}
+
+/** 是否已离开 Crop：文案框 / 滤镜标记 / 裁剪入口消失且头部右侧按钮仍在。 */
+async function hasLeftCrop(client: XportBrowserClient, selectCrop: NodePath): Promise<boolean> {
+  if ((await countOf(client, captionBoxPath())) >= 1) return true;
+  if ((await countOf(client, editFilterMarkerPath())) >= 1) return true;
+  if ((await countOf(client, selectCrop)) < 1 && (await countOf(client, headerActionPath())) >= 1) {
+    return true;
+  }
+  return false;
+}
+
+/** 比例菜单仍开着时先关掉，避免吞掉头部 Next。 */
+async function dismissCropRatioMenu(client: XportBrowserClient): Promise<void> {
+  const ratioMarker = cropRatioMenuMarkerPath();
+  if ((await countOf(client, ratioMarker)) < 1) return;
+  const selectCrop = selectCropPath();
+  if ((await countOf(client, selectCrop)) >= 1) {
+    if (await clickPath(client, selectCrop, { preferClickableAncestor: true })) {
+      client.taskLog('Dismissed open crop ratio menu (toggle Select crop)');
+      await pause(600);
+      return;
+    }
+  }
+  // 回退：Escape 关浮层（现场菜单挡住 Next 时）
+  await client.pressKey(0, 'escape');
+  client.taskLog('Dismissed open crop ratio menu (Escape)');
+  await pause(600);
+}
+
+/**
+ * Crop → Edit/文案：轮询点头部右侧 Next，直到离开裁剪。
+ * 失败现场：selectOriginalCrop 打开比例菜单后 miss，单次 Next 被吞仍停在 Crop。
+ */
+async function advancePastCrop(
+  client: XportBrowserClient,
+  timeoutMs: number,
+): Promise<boolean> {
+  const selectCrop = selectCropPath();
+  const headerBtn = headerActionPath();
+  // 现场已观察英文 Next（头部右侧槽；结构主路径失败时兜底）
+  const nextByText = nodePath()
+    .css('div[role="dialog"]')
+    .then()
+    .css('[role="button"]')
+    .containAnyText('Next');
+  const deadline = Date.now() + timeoutMs;
+  let clicks = 0;
+  const maxClicks = 6;
+
+  while (Date.now() < deadline) {
+    if (await hasLeftCrop(client, selectCrop)) {
+      client.taskLog(`left crop after ${clicks} Next click(s)`);
+      return true;
+    }
+    await dismissCropRatioMenu(client);
+    if (clicks >= maxClicks) break;
+    let clicked = false;
+    if ((await countOf(client, headerBtn)) >= 1) {
+      clicked = await clickPath(client, headerBtn);
+    }
+    if (!clicked && (await countOf(client, nextByText)) >= 1) {
+      clicked = await clickPath(client, nextByText);
+      if (clicked) client.taskLog('crop Next via text fallback');
+    }
+    if (!clicked) {
+      await Bun.sleep(500);
+      continue;
+    }
+    clicks += 1;
+    client.taskLog(`crop advance click #${clicks}`);
+    await pause(800);
+    const settleUntil = Date.now() + 8_000;
+    while (Date.now() < settleUntil) {
+      if (await hasLeftCrop(client, selectCrop)) {
+        client.taskLog(`left crop after ${clicks} Next click(s)`);
+        return true;
+      }
+      await Bun.sleep(400);
+    }
+  }
+  return hasLeftCrop(client, selectCrop);
 }
 
 /**
@@ -204,7 +299,7 @@ async function clickCreate(client: XportBrowserClient): Promise<boolean> {
  * 无入口或无选项则跳过并打日志（不中断发帖）。
  */
 async function selectOriginalCrop(client: XportBrowserClient): Promise<void> {
-  const selectCrop = nodePath().css('div[role="dialog"]').then().css(SELECT_CROP_PATH).one();
+  const selectCrop = selectCropPath();
   if (!(await waitForCount(client, selectCrop, 1, 12_000))) {
     client.taskLog('Select crop not found; skip Original crop');
     return;
@@ -216,13 +311,9 @@ async function selectOriginalCrop(client: XportBrowserClient): Promise<void> {
   await pause(1000);
 
   // 比例数字「1:1」语言无关，用作菜单已打开信号（containAnyText 勿 .one()：现场 count 会变 0）
-  const ratioMarker = nodePath()
-    .css('div[role="dialog"]')
-    .then()
-    .css('[role="button"]')
-    .containAnyText('1:1');
-  // 录制：Original 选项旁 svg path M6.549…（Photo outline icon）
-  const originalIcon = nodePath().css('div[role="dialog"]').then().css(ORIGINAL_CROP_ICON).one();
+  const ratioMarker = cropRatioMenuMarkerPath();
+  // 录制：Original 选项旁 svg path M6.549…（Photo outline icon；勿 .one() 同 containAnyText 坑）
+  const originalIcon = nodePath().css('div[role="dialog"]').then().css(ORIGINAL_CROP_ICON);
   // 现场已观察：英文 Original、中文 原版（须 dialog 内，避免误点 Feed「Original audio」）
   const originalBtn = nodePath()
     .css('div[role="dialog"]')
@@ -254,6 +345,8 @@ async function selectOriginalCrop(client: XportBrowserClient): Promise<void> {
     await Bun.sleep(300);
   }
   client.taskLog('Original crop option miss; continue with default crop');
+  // miss 后菜单常仍开着，不关会吞掉后续 Next
+  await dismissCropRatioMenu(client);
 }
 
 /**
@@ -385,7 +478,7 @@ async function runAutomation(client: XportBrowserClient, taskConfig: TaskRunConf
     await pause(1500);
 
     // 等进入 Crop：比例按钮或头部「继续」
-    const selectCrop = nodePath().css('div[role="dialog"]').then().css(SELECT_CROP_PATH).one();
+    const selectCrop = selectCropPath();
     const headerBtn = headerActionPath();
     const cropReadyDeadline = Date.now() + 25_000;
     let cropReady = false;
@@ -402,31 +495,8 @@ async function runAutomation(client: XportBrowserClient, taskConfig: TaskRunConf
 
     await selectOriginalCrop(client);
 
-    if (!(await clickHeaderAction(client))) {
-      return await failStep(client, 'crop_next', '裁剪步骤找不到下一步', 'ELEMENT_NOT_FOUND');
-    }
-    await pause(1200);
-
-    // 等离开裁剪：出现滤镜标记或已到文案页（避免过早当 Edit 点 Next，实际只走了 Crop→Edit）
-    const afterCropDeadline = Date.now() + 20_000;
-    let leftCrop = false;
-    while (Date.now() < afterCropDeadline) {
-      if ((await countOf(client, captionBoxPath())) >= 1) {
-        leftCrop = true;
-        break;
-      }
-      if ((await countOf(client, editFilterMarkerPath())) >= 1) {
-        leftCrop = true;
-        break;
-      }
-      // 裁剪入口已消失也视为进入后续步
-      if ((await countOf(client, selectCrop)) < 1 && (await countOf(client, headerBtn)) >= 1) {
-        leftCrop = true;
-        break;
-      }
-      await Bun.sleep(400);
-    }
-    if (!leftCrop) {
+    // Crop→Edit：关比例菜单 + 轮询点 Next（单次点击易被吞，失败停在 Crop）
+    if (!(await advancePastCrop(client, 45_000))) {
       return await failStep(client, 'crop_next', '裁剪后未进入编辑/文案步骤', 'ELEMENT_NOT_FOUND');
     }
 

@@ -2,7 +2,7 @@
   "format": "xport-github-project",
   "formatVersion": 1,
   "kind": "automation",
-  "exportedAt": 1793238965,
+  "exportedAt": 1793260759,
   "project": {
     "label": "twitter-create-post-with-media",
     "name": "推特图文/视频发帖",

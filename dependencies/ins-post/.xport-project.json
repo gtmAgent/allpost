@@ -2,12 +2,12 @@
   "format": "xport-github-project",
   "formatVersion": 1,
   "kind": "automation",
-  "exportedAt": 1793238964,
+  "exportedAt": 1793260758,
   "project": {
     "label": "ins-post",
     "name": "Instagram发帖",
     "target": "browser",
-    "version": "1.2.2"
+    "version": "1.2.3"
   },
   "deviceTargets": [
     "browser",

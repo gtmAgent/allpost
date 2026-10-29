@@ -12,7 +12,7 @@ export interface TaskGroupConfig {
   medias: string[];
   captions: string;
   browsers: number[];
-  daily_limit: number;
+  daily_limit: string;
   during_min: string;
   during_max: string;
   daily_time_start: string;
